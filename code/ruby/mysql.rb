@@ -18,16 +18,22 @@ require "time"
 require "base64"
 
 class DataStore
-    attr_accessor :client_label, :host_label, :type_label, :port, :user_name, :password, :collectin
+    attr_accessor :client_label, 
+                  :host_label, 
+                  :type_label, 
+                  :port, 
+                  :user_name, 
+                  :password, 
+                  :collection
   
     def initialize(config=nil)
         @client_label = "mysql-local"
         @host_label = "127.0.0.1"
         @type_label = "mysql-local"
         @port = 3306 #MySQL.
-        @user_name = "root"   #TODO: not a best practice.
+        @user_name = "myUserName"  
         @password = "" #Encryption needed.
-        @collections = "flood_development"
+        @collection = "my_tweets"
 
         ''' How do we want to store/access user options and credentials.
         if not config.nil? then
