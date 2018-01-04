@@ -134,7 +134,12 @@ ActiveRecord::Schema.define(:version => 20130306234839) do
     t.datetime 'created_at',                            :null => false
     t.datetime 'updated_at',                            :null => false
   end
-
+end
+```
+  
+Here is an example table for storing #hashtags. Such tables are recommended for all flavors of Twitter entities such as mentions, links, and media.   
+  
+```
   create_table 'hashtags', :force => true do |t|
     t.integer  'tweet_id', :limit => 8
     t.string   'hashtag'
@@ -142,7 +147,7 @@ ActiveRecord::Schema.define(:version => 20130306234839) do
     t.datetime 'updated_at',               :null => false
   end
 
-end
+
 ```
 
 
