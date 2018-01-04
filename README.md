@@ -17,6 +17,9 @@ A collection of notes on and code snippets for storing Twitter data.
 
 ## Creating databases 
 
+These table fields are a bit arbitrary.  I cherry picked some Tweet details and promoted them to be table fields.
+Meanwhile the entire tweet is stored, in case other parsing is needed downstream.
+
 ### Using SQL
 
 Below is an example SQL command that creates a single ```tweets``` table. While storing Tweets in a single table is not idea, this command illustrates the basic mechanics and syntax for creating tables. 
@@ -98,31 +101,50 @@ ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 
 ### Using ActiveRecord
 
-Having said that, the database was created (and maintained/migrated) with Rails ActiveRecord.
-It is just a great way to create databases.
+ActiveRecord is a great tool for creating, maintaining, and migrating databases. Below are two examples of building additional tables for storing Twitter data.
 
 ```
 ActiveRecord::Schema.define(:version => 20130306234839) do
 
-  create_table "activities", :force => true do |t|
-    t.integer  "native_id",   :limit => 8
-    t.text     "content"
-    t.text     "body"
-    t.string   "rule_value"
-    t.string   "rule_tag"
-    t.string   "publisher"
-    t.string   "job_uuid"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "posted_time"
+  create_table 'users', :force => true do |t|
+    t.integer  'user_id',                 :limit => 8
+   
+    t.string   'display_name'
+    t.string   'handle'
+    t.string   'bio_link'
+    t.string   'bio'
+    t.string   'lang'
+    t.string   'time_zone'
+    t.integer  'utc_offset'
+    t.datetime 'created_at'
+    t.string   'location'
+
+    t.string   'profile_geo_name'
+    t.float    'profile_geo_long'
+    t.float    'profile_geo_lat'
+    t.string   'profile_geo_country_code'
+    t.string   'profile_geo_region'
+    t.string   'profile_geo_subregion'
+    t.string   'profile_geo_locality'
+
+    #compliance details - currently protected account - Need external tool to maintain metadata.
+    t.boolean  'unavailable', :default => false
+    t.datetime 'unavailable_at' 
+   
+    t.datetime 'created_at',                            :null => false
+    t.datetime 'updated_at',                            :null => false
+  end
+
+  create_table 'hashtags', :force => true do |t|
+    t.integer  'tweet_id', :limit => 8
+    t.string   'hashtag'
+    t.datetime 'created_at',               :null => false
+    t.datetime 'updated_at',               :null => false
   end
 
 end
 ```
 
-The above table fields are a bit arbitrary.  I cherry picked some Tweet details and promoted them to be table fields.
-Meanwhile the entire tweet is stored, in case other parsing is needed downstream.
+
 
 
