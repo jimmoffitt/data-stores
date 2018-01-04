@@ -12,6 +12,8 @@ A collection of notes on and code snippets for storing Twitter data.
 + ruby / mysql/ vpn-internal 
 + node / nosql / ???
 
+### Options
+
 + Languages? Great to start with Python, Ruby, Node, and Scala.
 + Data store types? 
   + Relational databases:
@@ -28,7 +30,8 @@ A collection of notes on and code snippets for storing Twitter data.
 + NoSQL code will readily port to other engines.
   + Default: Mongo DB. Other targets: Amazon, other cloud dialects. 
 
-## Creating databases 
+
+## Creating relational databases 
 
 These table fields are a bit arbitrary.  I cherry picked some Tweet details and promoted them to be table fields.
 Meanwhile the entire tweet is stored, in case other parsing is needed downstream.
