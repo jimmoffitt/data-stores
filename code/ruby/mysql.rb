@@ -7,6 +7,8 @@ desired.
 
 This class is meant to demonstrate basic code for building a "database" class for use with Twitter API clients that retrieve Tweets of interest. It is written in Ruby, but in its present form hopefully will
 read like pseudo-code for other languages.
+
+Calling code needs to manage connecting and disconnecting.
 '''
 
 
@@ -32,9 +34,28 @@ class DataStore
             getSystemConfig(config)
         end
         '''
-
     end
 
+    def connect
+        puts 'Connecting to datastore.'
+        #MySQL
+        @client = Mysql2::Client.new(:host => @host_label, :port => @port, :username => @user_name, :database => @collection )
+    end
+  
+    def disconnect
+        puts 'Closing datastore connection.'
+        @client.close
+    end
+  
+    def select(sql = nil) #needed? 
+        #sql = @sql unless @sql.nil  #Do we want/need to support a static SQL statement? 
+        result = @client.query(sql)
+        return result #Being explicit here for readability...
+    end
+  
+    #---------------------------------------------
+    #Methods used by DataStore object creators. 
+    
     def connect
         #MySQL
         @client = Mysql2::Client.new(:host => @host_label, :port => @port, :username => @user_name, :database => @collection )
@@ -43,15 +64,11 @@ class DataStore
     def disconnect
         @client.close
     end
-  
-    def SELECT(sql = nil)
-        #sql = @sql unless @sql.nil  #Do we want/need to support a static SQL statement? 
-        result = @client.query(sql)
-        return result #Being explicit here for readability...
-    end
-  
-    def handle_tweet(tweet_json)
-      
+    
+    def store_tweet(tweet_json)
+        #Prepare SQL
+        #Execute SQL
+        #Provide parent success metadata
     end  
 
 end #DataStore object
@@ -74,43 +91,15 @@ if __FILE__ == $0
     oDB.connect
   
     #Load Tweets to store from somewhere
-    tweets = get_tweets()
+    tweets = get_tweet_json() #Details: inbox, outbox
   
+    oDB.connect
     tweets.each do |tweet|
-      oDB.handle_tweet(tweet)
-      
+      oDB.store_tweet(tweet)
     end  
-  
-  
-  
-  
-  
     
-
-    #Pull JSON activities from a folder, parse them, and push into database...
-    input_folder = "/Users/jmoffitt/work/rbPowerTrack/output/nhwc/events"
-
-    #Loop through input folder AND its subfolders, loading all JSON activity files found there...
-    Dir.glob(input_folder + "/**/*.json") do |file_name|
-        #Open the file...
-        file = File.open(file_name)
-        p "Ingesting #{file_name}"
-
-        #Walk each line in the file...
-        file.lines().each do |line|
-            if line == "\r\n" then
-                #p "empty line"
-            elsif line.include?("activity_count") then
-                #p line
-            else
-                #...and store activity lines in the database.
-                line.rstrip!
-                oDB.storeActivity(line)
-            end
-        end #Processing a line.
-        file.close()
-
-    end #Navigating through directory.
+    oDB.disconnect
+  
 end
 
 
