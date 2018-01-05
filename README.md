@@ -49,6 +49,25 @@ Ruby
 + https://www.mongodb.com/events/webinar/ruby-mongodb-nov2013
 
 
+### Relational databases
+
+Python
++ https://www.datacamp.com/courses/introduction-to-relational-databases-in-python
++ https://www.fullstackpython.com/databases.html
++ https://dataset.readthedocs.io/en/latest/ <-- interesting concept that blends the NoSQL schema-less world with relational databases.
++ https://dev.mysql.com/doc/connector-python/en/
+
+Node
++ https://www.slant.co/topics/5218/~relational-databases-to-use-for-node-js-applications
++ https://blog.risingstack.com/node-js-database-tutorial/
+
+Ruby
++ http://rubylearning.com/satishtalim/ruby_mysql_tutorial.html
++ http://guides.rubyonrails.org/active_record_basics.html
++ https://www.google.com/search?ei=twZQWqK6H8femAG3x474Bg&q=ruby+relational+database+-rails&oq=ruby+relational+database+-rails&gs_l=psy-ab.12...9355.11274.0.20941.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.7KAiIU65Ye4
++ http://archive.oreilly.com/pub/a/ruby/excerpts/ruby-learning-rails/intro-ruby-relational-db.html
++ https://books.google.com/books?id=VCQGjDhhbn8C&pg=PA228&lpg=PA228&dq=ruby+relational+database+-rails&source=bl&ots=u9mzVdAck8&sig=-ODknuJNoaGgh-8TkzWBSk743Vc&hl=en&sa=X&ved=0ahUKEwj8n8vx-cHYAhXI7SYKHUzmD4EQ6AEIUjAJ#v=onepage&q=ruby%20relational%20database%20-rails&f=false
++ http://backend.turing.io/module2/lessons/intro_to_active_record_in_sinatra
 
 
 
