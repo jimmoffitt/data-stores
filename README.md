@@ -15,7 +15,7 @@ A collection of notes on and code snippets for storing Twitter data.
 
 + Languages? Great to start with Python, Ruby, Node, and Scala.
 + Data store types? 
-  + Relational databases: schema/table based. MySQL, PostgreSQL, SQLite, SQL Server
+  + [Relational databases](https://en.wikipedia.org/wiki/Relational_database): schema/table based. MySQL, PostgreSQL, SQLite, SQL Server
   + [NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL): schema-less JSON collections. MongoDB, DynamoDB (AWS), Domino (IBM)
 + Hosts
   + Local: running on a local (laptop) server environment.
@@ -68,9 +68,6 @@ Ruby
 + http://archive.oreilly.com/pub/a/ruby/excerpts/ruby-learning-rails/intro-ruby-relational-db.html
 + https://books.google.com/books?id=VCQGjDhhbn8C&pg=PA228&lpg=PA228&dq=ruby+relational+database+-rails&source=bl&ots=u9mzVdAck8&sig=-ODknuJNoaGgh-8TkzWBSk743Vc&hl=en&sa=X&ved=0ahUKEwj8n8vx-cHYAhXI7SYKHUzmD4EQ6AEIUjAJ#v=onepage&q=ruby%20relational%20database%20-rails&f=false
 + http://backend.turing.io/module2/lessons/intro_to_active_record_in_sinatra
-
-
-
 
 ## Creating relational databases 
 
