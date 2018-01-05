@@ -15,8 +15,8 @@ A collection of notes on and code snippets for storing Twitter data.
 
 + Languages? Great to start with Python, Ruby, Node, and Scala.
 + Data store types? 
-  + Relational databases:
-  + NoSQL data stores: 
+  + Relational databases: schema/table based. MySQL, PostgreSQL, SQLite, SQL Server
+  + [NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL): schema-less JSON collections. MongoDB, DynamoDB (AWS), Domino (IBM)
 + Hosts
   + Local: running on a local (laptop) server environment.
   + Internal-service: connecting to an intenal data store host/service.
