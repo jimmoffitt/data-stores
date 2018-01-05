@@ -4,7 +4,6 @@ A collection of notes on and code snippets for storing Twitter data.
 
 ## Language/data-store-type/host combinations
 
-
 ### Examples
 + python / nosql / local 
 + python / mysql / local
@@ -29,6 +28,29 @@ A collection of notes on and code snippets for storing Twitter data.
   + Default: MySQL. Other targets: Postgres, sqlite
 + NoSQL code will readily port to other engines.
   + Default: Mongo DB. Other targets: Amazon, other cloud dialects. 
+
+## Reading material for getting started
+
+### NoSQL
+
+Python
++ https://realpython.com/blog/python/introduction-to-mongodb-and-python/
++ https://www.mongodb.com/blog/post/getting-started-with-python-and-mongodb
++ https://www.fullstackpython.com/no-sql-datastore.html
+
+Node
++ https://www.npmjs.com/package/nosql
++ https://dzone.com/articles/nodeups-recent-podcast-nodejs
++ https://www.w3schools.com/nodejs/nodejs_mongodb.asp
++ https://www.mongodb.com/blog/post/the-mean-stack-mongodb-expressjs-angularjs-and
+
+Ruby
++ https://rubygems.org/gems/mongo/versions/2.4.1
++ https://www.mongodb.com/events/webinar/ruby-mongodb-nov2013
+
+
+
+
 
 
 ## Creating relational databases 
