@@ -1,15 +1,32 @@
 # data-stores
 A collection of notes on and code snippets for storing Twitter data.
 
+# Introduction
 
 ## Language/data-store-type/host combinations
+
+When writing code for storing data there are three fundamental details that determine what that code looks like. First, of course, is the language you are using to write the code. The second is the type of data store you are putting your data into. The third is where your data store is hosted. The data store could be stored on your local hard drive or it may be hosted remotely. 
+
+When inserting data there are huge differences between relational databases, and "NoSQL" data stores. 
+
+[Relational databases](https://en.wikipedia.org/wiki/Relational_database) consist of 'tables' based on a static 'schema'. Nearly all databases support the querying language SQL, although there are *dialects* depending on how the database type. When inserting data into a database table, you need to first parse the Tweet JSON, extracting intities that will go into a specific table 'field'. After parsing, SQL statements that map JSON attributes to table fields are constructed. These SQL statements are then executed using a language-specific database package/library.
+
+```
+sql = "REPLACE INTO tweets (id, posted_at, message, user_id, created_at, updated_at ) " +
+                 "VALUES (#{id_str}, '#{created_at}', '#{message}', #{user_id}, UTC_TIMESTAMP(), UTC_TIMESTAMP());"
+```
+
+The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a variety of things, but at their core they are made up of simple key-value pairs. When storing Tweets, these values are the individual Tweet JSON objects, and the NoSQL 'engine' uses the keys to store and retrieve these objects. NoSQL can be such a great data store solution for Tweet data precisely because it is build to store and manage JSON objects. Since all Twitter APIs return JSON objects, storing them with a NoSQL solution requires no schema design and code that exactly reflects that design. 
+
+Given these core differences, your path to storing Tweets, and the time to get there, will be very different.
+
 
 ### Examples
 + python / nosql / local 
 + python / mysql / local
 + ruby / nosql / AWS 
 + ruby / mysql/ vpn-internal 
-+ node / nosql / ???
++ node / nosql / Google Cloud
 
 ### Options
 
@@ -25,9 +42,10 @@ A collection of notes on and code snippets for storing Twitter data.
   
 ### Assumptions
 + Relational database code will readily port to other db engines.
-  + Default: MySQL. Other targets: Postgres, sqlite
+  + Default: MySQL. Other targets: Postgres, sqlite, SQL Server
 + NoSQL code will readily port to other engines.
   + Default: Mongo DB. Other targets: Amazon, other cloud dialects. 
+  
 
 ## Reading material for getting started
 
@@ -68,6 +86,11 @@ Ruby
 + http://archive.oreilly.com/pub/a/ruby/excerpts/ruby-learning-rails/intro-ruby-relational-db.html
 + https://books.google.com/books?id=VCQGjDhhbn8C&pg=PA228&lpg=PA228&dq=ruby+relational+database+-rails&source=bl&ots=u9mzVdAck8&sig=-ODknuJNoaGgh-8TkzWBSk743Vc&hl=en&sa=X&ved=0ahUKEwj8n8vx-cHYAhXI7SYKHUzmD4EQ6AEIUjAJ#v=onepage&q=ruby%20relational%20database%20-rails&f=false
 + http://backend.turing.io/module2/lessons/intro_to_active_record_in_sinatra
+
+
+# Relational databases
+
+## Designing schemas
 
 ## Creating relational databases 
 
@@ -153,7 +176,7 @@ ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 
 ```
 
-### Using ActiveRecord
+### Using Ruby ActiveRecord
 
 ActiveRecord is a great tool for creating, maintaining, and migrating databases. Below are two examples of building additional tables for storing Twitter data.
 
@@ -200,7 +223,6 @@ Here is an example table for storing #hashtags. Such tables are recommended for 
     t.datetime 'created_at',               :null => false
     t.datetime 'updated_at',               :null => false
   end
-
 
 ```
 
