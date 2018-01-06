@@ -11,14 +11,9 @@ When inserting data there are huge differences between relational databases, and
 
 [Relational databases](https://en.wikipedia.org/wiki/Relational_database) consist of 'tables' based on a static 'schema'. Nearly all databases support the querying language SQL, although there are *dialects* depending on how the database type. When inserting data into a database table, you need to first parse the Tweet JSON, extracting intities that will go into a specific table 'field'. After parsing, SQL statements that map JSON attributes to table fields are constructed. These SQL statements are then executed using a language-specific database package/library.
 
-```
-sql = "REPLACE INTO tweets (id, posted_at, message, user_id, created_at, updated_at ) " +
-                 "VALUES (#{id_str}, '#{created_at}', '#{message}', #{user_id}, UTC_TIMESTAMP(), UTC_TIMESTAMP());"
-```
+The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a variety of things, but at their core they are made up of simple key-value pairs. When storing Tweets, these values are the individual Tweet JSON objects, and the NoSQL 'engine' uses the keys to store and retrieve these objects. NoSQL can be such a great data store solution for Tweet data precisely because it is built to store and manage JSON objects. Since all Twitter APIs return JSON objects, storing them with a NoSQL solution requires no schema design and code that exactly reflects that design. 
 
-The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a variety of things, but at their core they are made up of simple key-value pairs. When storing Tweets, these values are the individual Tweet JSON objects, and the NoSQL 'engine' uses the keys to store and retrieve these objects. NoSQL can be such a great data store solution for Tweet data precisely because it is build to store and manage JSON objects. Since all Twitter APIs return JSON objects, storing them with a NoSQL solution requires no schema design and code that exactly reflects that design. 
-
-Given these core differences, your path to storing Tweets, and the time to get there, will be very different.
+Given these core differences, your path to storing Tweets, and the time to get there, will be very different. If you using a database, a first step is designing your schema, creating your tables, and constructing SQL statements for both inserting and retrieving data. If you are using a JSON data store, you can skip those steps, write some simple code for inserting the Tweet JSON, and move on to designing queries.
 
 
 ### Examples
@@ -89,6 +84,15 @@ Ruby
 
 
 # Relational databases
+
+
+
+```
+sql = "REPLACE INTO tweets (id, posted_at, message, user_id, created_at, updated_at ) " +
+                 "VALUES (#{id_str}, '#{created_at}', '#{message}', #{user_id}, UTC_TIMESTAMP(), UTC_TIMESTAMP());"
+```
+
+
 
 ## Designing schemas
 
