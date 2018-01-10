@@ -1,0 +1,702 @@
+{
+  "created_at": "Thu Dec 14 22:16:17 +0000 2017",
+  "id": 9.4143167593789e+17,
+  "id_str": "941431675937890304",
+  "text": "RT @FloodSocial: So, then what happens when an extended Quote Tweet of an extended original Tweet is Quoted again with &gt; 140 characters, ma\u2026",
+  "source": "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+  "truncated": false,
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 9.069484600787e+17,
+    "id_str": "906948460078698496",
+    "name": "SnowBot",
+    "screen_name": "SnowBotDev",
+    "location": "USA",
+    "url": "https:\/\/github.com\/jimmoffitt\/SnowBotDev",
+    "description": "Home of the SnowBot, a demo of the Twitter Account Activity and Direct Message APIs. #ThinkSnow",
+    "translator_type": "none",
+    "derived": {
+      "locations": [
+        {
+          "country": "United States",
+          "country_code": "US",
+          "full_name": "United States",
+          "geo": {
+            "coordinates": [
+              -98.5,
+              39.76
+            ],
+            "type": "point"
+          }
+        }
+      ]
+    },
+    "protected": false,
+    "verified": false,
+    "followers_count": 15,
+    "friends_count": 25,
+    "listed_count": 1,
+    "favourites_count": 8,
+    "statuses_count": 42,
+    "created_at": "Sun Sep 10 18:32:17 +0000 2017",
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "lang": "en",
+    "contributors_enabled": false,
+    "is_translator": false,
+    "profile_background_color": "000000",
+    "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+    "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+    "profile_background_tile": false,
+    "profile_link_color": "91D2FA",
+    "profile_sidebar_border_color": "000000",
+    "profile_sidebar_fill_color": "000000",
+    "profile_text_color": "000000",
+    "profile_use_background_image": false,
+    "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/906950730342309888\/Hr-gS4Sq_normal.jpg",
+    "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/906950730342309888\/Hr-gS4Sq_normal.jpg",
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "retweeted_status": {
+    "created_at": "Sat Dec 02 01:36:33 +0000 2017",
+    "id": 9.3677103207711e+17,
+    "id_str": "936771032077107200",
+    "text": "So, then what happens when an extended Quote Tweet of an extended original Tweet is Quoted again with &gt; 140 charact\u2026 https:\/\/t.co\/B89YTz8hFj",
+    "display_text_range": [
+      0,
+      140
+    ],
+    "source": "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "truncated": true,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 944480690,
+      "id_str": "944480690",
+      "name": "@FloodSocial demo",
+      "screen_name": "FloodSocial",
+      "location": "Boulder, CO",
+      "url": "https:\/\/github.com\/jimmoffitt\/FloodSocial",
+      "description": "Exploring @TwitterDev, one demo at a time. \ud83c\udf0d\ud83d\udca7\u2744\ufe0f\ud83c\udf27\ufe0f\u2600\ufe0f  \n\nCurrent POC: Send @FloodSocial a DM to subscribe to notifications from Texas gauges in flood stage",
+      "translator_type": "none",
+      "protected": false,
+      "verified": false,
+      "followers_count": 57,
+      "friends_count": 16,
+      "listed_count": 5,
+      "favourites_count": 16,
+      "statuses_count": 137,
+      "created_at": "Mon Nov 12 19:59:55 +0000 2012",
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": true,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": false,
+      "profile_link_color": "7FDBB6",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "000000",
+      "profile_text_color": "000000",
+      "profile_use_background_image": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2880307445\/a6de07ce4053d93d9dd8db5f56f210ec_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2880307445\/a6de07ce4053d93d9dd8db5f56f210ec_normal.png",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/944480690\/1412809012",
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "quoted_status_id": 9.2895063586055e+17,
+    "quoted_status_id_str": "928950635860545537",
+    "quoted_status": {
+      "created_at": "Fri Nov 10 11:41:05 +0000 2017",
+      "id": 9.2895063586055e+17,
+      "id_str": "928950635860545537",
+      "text": "And yet another test of quoted extended Tweets. @snowman #Testing #Documentation #RecipesForDataParsing\u2026 https:\/\/t.co\/JnfMKYbjuA",
+      "display_text_range": [
+        0,
+        140
+      ],
+      "source": "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+      "truncated": true,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 944480690,
+        "id_str": "944480690",
+        "name": "@FloodSocial demo",
+        "screen_name": "FloodSocial",
+        "location": "Boulder, CO",
+        "url": "https:\/\/github.com\/jimmoffitt\/FloodSocial",
+        "description": "Exploring @TwitterDev, one demo at a time. \ud83c\udf0d\ud83d\udca7\u2744\ufe0f\ud83c\udf27\ufe0f\u2600\ufe0f  \n\nCurrent POC: Send @FloodSocial a DM to subscribe to notifications from Texas gauges in flood stage",
+        "translator_type": "none",
+        "protected": false,
+        "verified": false,
+        "followers_count": 57,
+        "friends_count": 16,
+        "listed_count": 5,
+        "favourites_count": 16,
+        "statuses_count": 137,
+        "created_at": "Mon Nov 12 19:59:55 +0000 2012",
+        "utc_offset": -25200,
+        "time_zone": "Mountain Time (US & Canada)",
+        "geo_enabled": true,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "profile_background_color": "000000",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_link_color": "7FDBB6",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "000000",
+        "profile_text_color": "000000",
+        "profile_use_background_image": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2880307445\/a6de07ce4053d93d9dd8db5f56f210ec_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2880307445\/a6de07ce4053d93d9dd8db5f56f210ec_normal.png",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/944480690\/1412809012",
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": null,
+        "follow_request_sent": null,
+        "notifications": null
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "quoted_status_id": 9.2894907865804e+17,
+      "quoted_status_id_str": "928949078658043905",
+      "is_quote_status": true,
+      "extended_tweet": {
+        "full_text": "And yet another test of quoted extended Tweets. @snowman #Testing #Documentation #RecipesForDataParsing https:\/\/t.co\/P0cKuzkP2Z https:\/\/t.co\/6ov02pb7kf\n\nWhere art thou, o' complete extended entities? So many to chose from. If in doubt, always parse the extended objects. #280! https:\/\/t.co\/0G3cnyOC7k",
+        "display_text_range": [
+          0,
+          276
+        ],
+        "entities": {
+          "hashtags": [
+            {
+              "text": "Testing",
+              "indices": [
+                57,
+                65
+              ]
+            },
+            {
+              "text": "Documentation",
+              "indices": [
+                66,
+                80
+              ]
+            },
+            {
+              "text": "RecipesForDataParsing",
+              "indices": [
+                81,
+                103
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/P0cKuzkP2Z",
+              "expanded_url": "http:\/\/paragon-events.cvent.com\/events\/data-innovation-generating-climate-solutions\/event-summary-3c5ceb9ac8a64fefae08fa5d617d67eb.aspx",
+              "display_url": "paragon-events.cvent.com\/events\/data-in\u2026",
+              "unwound": {
+                "url": "http:\/\/paragon-events.cvent.com\/events\/data-innovation-generating-climate-solutions\/event-summary-3c5ceb9ac8a64fefae08fa5d617d67eb.aspx",
+                "status": 200,
+                "title": "Data Innovation: Generating Climate Solutions",
+                "description": "Western Digital and United Nations Global Pulse are proud to kick off the Sustainable Innovation Forum with a special evening focused on transformative use of data and technology to inform global policy and solutions. Guest speakers include Deputy Secretary General Amina Mohammad, Vice President Al Gore, Director of U.N. Global Pulse Robert Kirkpatrick, Climate Specialist Amy Luers and more."
+              },
+              "indices": [
+                104,
+                127
+              ]
+            },
+            {
+              "url": "https:\/\/t.co\/6ov02pb7kf",
+              "expanded_url": "http:\/\/www.cvent.com\/events\/data-innovation-generating-climate-solutions\/custom-20-3c5ceb9ac8a64fefae08fa5d617d67eb.aspx",
+              "display_url": "cvent.com\/events\/data-in\u2026",
+              "unwound": {
+                "url": "http:\/\/www.cvent.com\/events\/data-innovation-generating-climate-solutions\/custom-20-3c5ceb9ac8a64fefae08fa5d617d67eb.aspx",
+                "status": 200,
+                "title": "Data Innovation: Generating Climate Solutions",
+                "description": "Western Digital and United Nations Global Pulse are proud to kick off the Sustainable Innovation Forum with a special evening focused on transformative use of data and technology to inform global policy and solutions. Guest speakers include Deputy Secretary General Amina Mohammad, Vice President Al Gore, Director of U.N. Global Pulse Robert Kirkpatrick, Climate Specialist Amy Luers and more."
+              },
+              "indices": [
+                128,
+                151
+              ]
+            },
+            {
+              "url": "https:\/\/t.co\/0G3cnyOC7k",
+              "expanded_url": "https:\/\/twitter.com\/FloodSocial\/status\/928949078658043905",
+              "display_url": "twitter.com\/FloodSocial\/st\u2026",
+              "unwound": {
+                "url": "https:\/\/twitter.com\/FloodSocial\/status\/928949078658043905",
+                "status": 200,
+                "title": "@FloodSocial demo on Twitter",
+                "description": "\u201cHello world from @TwitterUK. Looking forward to being on a panel discussing how big data platforms and innovation can help promote solutions and actions on climate change. https:\/\/t.co\/s5XOcw6cc5 #COP23 #SIF17\u201d"
+              },
+              "indices": [
+                277,
+                300
+              ]
+            }
+          ],
+          "user_mentions": [
+            {
+              "screen_name": "snowman",
+              "name": "Jim \u2744\ufe0f\u2603\ud83c\udf0e2\ufe0f\u20e30\ufe0f\u20e31\ufe0f\u20e38\ufe0f\u20e3",
+              "id": 17200003,
+              "id_str": "17200003",
+              "indices": [
+                48,
+                56
+              ]
+            }
+          ],
+          "symbols": [
+            
+          ]
+        }
+      },
+      "quote_count": 0,
+      "reply_count": 0,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "Testing",
+            "indices": [
+              57,
+              65
+            ]
+          },
+          {
+            "text": "Documentation",
+            "indices": [
+              66,
+              80
+            ]
+          },
+          {
+            "text": "RecipesForDataParsing",
+            "indices": [
+              81,
+              103
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/JnfMKYbjuA",
+            "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/928950635860545537",
+            "display_url": "twitter.com\/i\/web\/status\/9\u2026",
+            "indices": [
+              105,
+              128
+            ]
+          }
+        ],
+        "user_mentions": [
+          {
+            "screen_name": "snowman",
+            "name": "Jim \u2744\ufe0f\u2603\ud83c\udf0e2\ufe0f\u20e30\ufe0f\u20e31\ufe0f\u20e38\ufe0f\u20e3",
+            "id": 17200003,
+            "id_str": "17200003",
+            "indices": [
+              48,
+              56
+            ]
+          }
+        ],
+        "symbols": [
+          
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "filter_level": "low",
+      "lang": "en"
+    },
+    "is_quote_status": true,
+    "extended_tweet": {
+      "full_text": "So, then what happens when an extended Quote Tweet of an extended original Tweet is Quoted again with &gt; 140 characters, making it an extended Quote of an extended Quote of an extended Tweet? #280 #ExtendedEntities https:\/\/t.co\/cK2F4BsEPz https:\/\/t.co\/oJbicz0B4u",
+      "display_text_range": [
+        0,
+        240
+      ],
+      "entities": {
+        "hashtags": [
+          {
+            "text": "ExtendedEntities",
+            "indices": [
+              199,
+              216
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/cK2F4BsEPz",
+            "expanded_url": "https:\/\/developer.twitter.com",
+            "display_url": "developer.twitter.com",
+            "unwound": {
+              "url": "https:\/\/developer.twitter.com",
+              "status": 200,
+              "title": "Twitter Developer Platform",
+              "description": "Programmatically create and manage Twitter ad campaigns. Tell great stories with Twitter content. Evaluate Twitter data to inform business decisions. Create connections with conversational experiences. Programmatically create and manage Twitter ad campaigns. The Ads API program enables businesses to create and manage ads campaigns programmatically on Twitter. To help achieve your business goals, the Ads API provides the following suite of tools: Objective-based campaigns, Analytics, and Targeting."
+            },
+            "indices": [
+              217,
+              240
+            ]
+          },
+          {
+            "url": "https:\/\/t.co\/oJbicz0B4u",
+            "expanded_url": "https:\/\/twitter.com\/FloodSocial\/status\/928950635860545537",
+            "display_url": "twitter.com\/FloodSocial\/st\u2026",
+            "unwound": {
+              "url": "https:\/\/twitter.com\/FloodSocial\/status\/928950635860545537",
+              "status": 200,
+              "title": "@FloodSocial demo account on Twitter",
+              "description": "\u201cAnd yet another test of quoted extended Tweets. @snowman #Testing #Documentation #RecipesForDataParsing https:\/\/t.co\/P0cKuzkP2Z https:\/\/t.co\/6ov02pb7kf Where art thou, o' complete extended entities? So many to chose from. If in doubt, always parse the extended objects. #280! https:\/\/t.co\/0G3cnyOC7k\u201d"
+            },
+            "indices": [
+              241,
+              264
+            ]
+          }
+        ],
+        "user_mentions": [
+          
+        ],
+        "symbols": [
+          
+        ]
+      }
+    },
+    "quote_count": 0,
+    "reply_count": 0,
+    "retweet_count": 1,
+    "favorite_count": 1,
+    "entities": {
+      "hashtags": [
+        
+      ],
+      "urls": [
+        {
+          "url": "https:\/\/t.co\/B89YTz8hFj",
+          "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/936771032077107200",
+          "display_url": "twitter.com\/i\/web\/status\/9\u2026",
+          "indices": [
+            120,
+            143
+          ]
+        }
+      ],
+      "user_mentions": [
+        
+      ],
+      "symbols": [
+        
+      ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "filter_level": "low",
+    "lang": "en"
+  },
+  "quoted_status_id": 9.2895063586055e+17,
+  "quoted_status_id_str": "928950635860545537",
+  "quoted_status": {
+    "created_at": "Fri Nov 10 11:41:05 +0000 2017",
+    "id": 9.2895063586055e+17,
+    "id_str": "928950635860545537",
+    "text": "And yet another test of quoted extended Tweets. @snowman #Testing #Documentation #RecipesForDataParsing\u2026 https:\/\/t.co\/JnfMKYbjuA",
+    "display_text_range": [
+      0,
+      140
+    ],
+    "source": "<a href=\"http:\/\/twitter.com\" rel=\"nofollow\">Twitter Web Client<\/a>",
+    "truncated": true,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 944480690,
+      "id_str": "944480690",
+      "name": "@FloodSocial demo",
+      "screen_name": "FloodSocial",
+      "location": "Boulder, CO",
+      "url": "https:\/\/github.com\/jimmoffitt\/FloodSocial",
+      "description": "Exploring @TwitterDev, one demo at a time. \ud83c\udf0d\ud83d\udca7\u2744\ufe0f\ud83c\udf27\ufe0f\u2600\ufe0f  \n\nCurrent POC: Send @FloodSocial a DM to subscribe to notifications from Texas gauges in flood stage",
+      "translator_type": "none",
+      "protected": false,
+      "verified": false,
+      "followers_count": 57,
+      "friends_count": 16,
+      "listed_count": 5,
+      "favourites_count": 16,
+      "statuses_count": 137,
+      "created_at": "Mon Nov 12 19:59:55 +0000 2012",
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": true,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": false,
+      "profile_link_color": "7FDBB6",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "000000",
+      "profile_text_color": "000000",
+      "profile_use_background_image": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2880307445\/a6de07ce4053d93d9dd8db5f56f210ec_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2880307445\/a6de07ce4053d93d9dd8db5f56f210ec_normal.png",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/944480690\/1412809012",
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "quoted_status_id": 9.2894907865804e+17,
+    "quoted_status_id_str": "928949078658043905",
+    "is_quote_status": true,
+    "extended_tweet": {
+      "full_text": "And yet another test of quoted extended Tweets. @snowman #Testing #Documentation #RecipesForDataParsing https:\/\/t.co\/P0cKuzkP2Z https:\/\/t.co\/6ov02pb7kf\n\nWhere art thou, o' complete extended entities? So many to chose from. If in doubt, always parse the extended objects. #280! https:\/\/t.co\/0G3cnyOC7k",
+      "display_text_range": [
+        0,
+        276
+      ],
+      "entities": {
+        "hashtags": [
+          {
+            "text": "Testing",
+            "indices": [
+              57,
+              65
+            ]
+          },
+          {
+            "text": "Documentation",
+            "indices": [
+              66,
+              80
+            ]
+          },
+          {
+            "text": "RecipesForDataParsing",
+            "indices": [
+              81,
+              103
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/P0cKuzkP2Z",
+            "expanded_url": "http:\/\/paragon-events.cvent.com\/events\/data-innovation-generating-climate-solutions\/event-summary-3c5ceb9ac8a64fefae08fa5d617d67eb.aspx",
+            "display_url": "paragon-events.cvent.com\/events\/data-in\u2026",
+            "unwound": {
+              "url": "http:\/\/paragon-events.cvent.com\/events\/data-innovation-generating-climate-solutions\/event-summary-3c5ceb9ac8a64fefae08fa5d617d67eb.aspx",
+              "status": 200,
+              "title": "Data Innovation: Generating Climate Solutions",
+              "description": "Western Digital and United Nations Global Pulse are proud to kick off the Sustainable Innovation Forum with a special evening focused on transformative use of data and technology to inform global policy and solutions. Guest speakers include Deputy Secretary General Amina Mohammad, Vice President Al Gore, Director of U.N. Global Pulse Robert Kirkpatrick, Climate Specialist Amy Luers and more."
+            },
+            "indices": [
+              104,
+              127
+            ]
+          },
+          {
+            "url": "https:\/\/t.co\/6ov02pb7kf",
+            "expanded_url": "http:\/\/www.cvent.com\/events\/data-innovation-generating-climate-solutions\/custom-20-3c5ceb9ac8a64fefae08fa5d617d67eb.aspx",
+            "display_url": "cvent.com\/events\/data-in\u2026",
+            "unwound": {
+              "url": "http:\/\/www.cvent.com\/events\/data-innovation-generating-climate-solutions\/custom-20-3c5ceb9ac8a64fefae08fa5d617d67eb.aspx",
+              "status": 200,
+              "title": "Data Innovation: Generating Climate Solutions",
+              "description": "Western Digital and United Nations Global Pulse are proud to kick off the Sustainable Innovation Forum with a special evening focused on transformative use of data and technology to inform global policy and solutions. Guest speakers include Deputy Secretary General Amina Mohammad, Vice President Al Gore, Director of U.N. Global Pulse Robert Kirkpatrick, Climate Specialist Amy Luers and more."
+            },
+            "indices": [
+              128,
+              151
+            ]
+          },
+          {
+            "url": "https:\/\/t.co\/0G3cnyOC7k",
+            "expanded_url": "https:\/\/twitter.com\/FloodSocial\/status\/928949078658043905",
+            "display_url": "twitter.com\/FloodSocial\/st\u2026",
+            "unwound": {
+              "url": "https:\/\/twitter.com\/FloodSocial\/status\/928949078658043905",
+              "status": 200,
+              "title": "@FloodSocial demo on Twitter",
+              "description": "\u201cHello world from @TwitterUK. Looking forward to being on a panel discussing how big data platforms and innovation can help promote solutions and actions on climate change. https:\/\/t.co\/s5XOcw6cc5 #COP23 #SIF17\u201d"
+            },
+            "indices": [
+              277,
+              300
+            ]
+          }
+        ],
+        "user_mentions": [
+          {
+            "screen_name": "snowman",
+            "name": "Jim \u2744\ufe0f\u2603\ud83c\udf0e2\ufe0f\u20e30\ufe0f\u20e31\ufe0f\u20e38\ufe0f\u20e3",
+            "id": 17200003,
+            "id_str": "17200003",
+            "indices": [
+              48,
+              56
+            ]
+          }
+        ],
+        "symbols": [
+          
+        ]
+      }
+    },
+    "quote_count": 0,
+    "reply_count": 0,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Testing",
+          "indices": [
+            57,
+            65
+          ]
+        },
+        {
+          "text": "Documentation",
+          "indices": [
+            66,
+            80
+          ]
+        },
+        {
+          "text": "RecipesForDataParsing",
+          "indices": [
+            81,
+            103
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https:\/\/t.co\/JnfMKYbjuA",
+          "expanded_url": "https:\/\/twitter.com\/i\/web\/status\/928950635860545537",
+          "display_url": "twitter.com\/i\/web\/status\/9\u2026",
+          "indices": [
+            105,
+            128
+          ]
+        }
+      ],
+      "user_mentions": [
+        {
+          "screen_name": "snowman",
+          "name": "Jim \u2744\ufe0f\u2603\ud83c\udf0e2\ufe0f\u20e30\ufe0f\u20e31\ufe0f\u20e38\ufe0f\u20e3",
+          "id": 17200003,
+          "id_str": "17200003",
+          "indices": [
+            48,
+            56
+          ]
+        }
+      ],
+      "symbols": [
+        
+      ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "filter_level": "low",
+    "lang": "en"
+  },
+  "is_quote_status": true,
+  "quote_count": 0,
+  "reply_count": 0,
+  "retweet_count": 0,
+  "favorite_count": 0,
+  "entities": {
+    "hashtags": [
+      
+    ],
+    "urls": [
+      
+    ],
+    "user_mentions": [
+      {
+        "screen_name": "FloodSocial",
+        "name": "@FloodSocial demo",
+        "id": 944480690,
+        "id_str": "944480690",
+        "indices": [
+          3,
+          15
+        ]
+      }
+    ],
+    "symbols": [
+      
+    ]
+  },
+  "favorited": false,
+  "retweeted": false,
+  "filter_level": "low",
+  "lang": "en",
+  "matching_rules": [
+    {
+      "tag": null
+    }
+  ]
+}
