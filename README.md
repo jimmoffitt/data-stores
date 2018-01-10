@@ -8,23 +8,25 @@ A collection of notes on and code snippets for storing Twitter data.
 + [Relational databases](#relational)
   + [Designing schemas](#schema_design)
   + [Creating databases](#creating_relational)
++ [NoSQL](nosql)
 
 # Introduction <a id="intro" class="tall">&nbsp;</a>
-
-Developers are drawn to Twitter data because of 
 
 ## Language/data-store-type/host combinations <a id="combos" class="tall">&nbsp;</a>
 
 When writing code for storing data there are three fundamental details that determine what that code looks like. First, of course, is the *language* you are using to write the code. The second is the *type* of _data store_ you are putting your data into. The third is where your data store is *hosted*. The data store could be stored with a NoSQL datastore on your local hard drive or it may be hosted remotely in a relational database. 
 
-Language 
-The application you are writing may focus on storing Tweets, analyzing Tweets, or displaying Tweets
+### Language 
+The application you are writing may focus on storing Tweets, analyzing Tweets, or displaying Tweets. You may have a Java, Scala or Node stream consumer feeding a real-time datastore. Or you may be building a historical visualization tool in Python or Ruby. Either way the language you are using to build these datastore-friendly tools likely has a set of libraries that abstract away many fundamental details. 
 
+### Datastore type
 When inserting data there are huge differences between relational databases, and "NoSQL" data stores. 
 
 [Relational databases](https://en.wikipedia.org/wiki/Relational_database) consist of 'tables' based on a static 'schema'. Nearly all databases support the querying language SQL, although there are *dialects* depending on how the database type. When inserting data into a database table, you need to first parse the Tweet JSON, extracting intities that will go into a specific table 'field'. After parsing, SQL statements that map JSON attributes to table fields are constructed. These SQL statements are then executed using a language-specific database package/library.
 
 The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a variety of things, but at their core they are made up of simple key-value pairs. When storing Tweets, these values are the individual Tweet JSON objects, and the NoSQL 'engine' uses the keys to store and retrieve these objects. NoSQL can be such a great data store solution for Tweet data precisely because it is built to store and manage JSON objects. Since all Twitter APIs return JSON objects, storing them with a NoSQL solution requires no schema design and code that exactly reflects that design. 
+
+### Host
 
 Given these core differences, your path to storing Tweets, and the time to get there, will be very different. If you using a database, a first step is designing your schema, creating your tables, and constructing SQL statements for both inserting and retrieving data. If you are using a JSON data store, you can skip those steps, write some simple code for inserting the Tweet JSON, and move on to designing queries.
 
@@ -200,6 +202,8 @@ Here is an example table for storing #hashtags. Such tables are recommended for 
 
 ```
 
+# NoSQL datastores <a id="nosql" class="tall">&nbsp;</a>
 
+Next!
 
 
