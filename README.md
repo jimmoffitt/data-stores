@@ -4,6 +4,8 @@ A collection of notes on and code snippets for storing Twitter data.
 + [Introduction](#intro)
 + [Getting started material](#reading)
 + [Relational databases](#relational)
+  + [Designing schemas](#schema_design)
+  + [Creating databases](#creating_relational)
 
 # Introduction <a id="intro" class="tall">&nbsp;</a>
 
