@@ -1,5 +1,10 @@
 
 
+
+Here is some example Ruby code that creates SQL SELECT queries:
+https://github.com/jimmoffitt/SocialFlood/blob/master/EventBinner/database/tweet_sql.rb
+
+
 ### Using SQL
 
 Below is an example SQL command that creates a single ```tweets``` table. While storing Tweets in a single table is not idea, this command illustrates the basic mechanics and syntax for creating tables. 
