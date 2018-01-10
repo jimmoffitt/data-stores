@@ -4,6 +4,7 @@ A collection of notes on and code snippets for storing Twitter data.
 + [Introduction](#intro)
   + [language/type/host combinations](#combos)
 + [Getting started material](#reading)
++ [Steps to storing Tweet data](#steps)
 + [Relational databases](#relational)
   + [Designing schemas](#schema_design)
   + [Creating databases](#creating_relational)
@@ -66,13 +67,13 @@ Python
 
 Node
 + (https://www.npmjs.com/package/nosql)
-+ (https://dzone.com/articles/nodeups-recent-podcast-nodejs
-+ (https://www.w3schools.com/nodejs/nodejs_mongodb.asp
-+ (https://www.mongodb.com/blog/post/the-mean-stack-mongodb-expressjs-angularjs-and
++ (https://dzone.com/articles/nodeups-recent-podcast-nodejs)
++ (https://www.w3schools.com/nodejs/nodejs_mongodb.asp)
++ (https://www.mongodb.com/blog/post/the-mean-stack-mongodb-expressjs-angularjs-and)
 
 Ruby
-+ (https://rubygems.org/gems/mongo/versions/2.4.1
-+ (https://www.mongodb.com/events/webinar/ruby-mongodb-nov2013
++ (https://rubygems.org/gems/mongo/versions/2.4.1)
++ (https://www.mongodb.com/events/webinar/ruby-mongodb-nov2013)
 
 
 ### Relational databases
@@ -91,6 +92,8 @@ Ruby
 + (http://rubylearning.com/satishtalim/ruby_mysql_tutorial.html)
 + (http://guides.rubyonrails.org/active_record_basics.html)
 + (http://backend.turing.io/module2/lessons/intro_to_active_record_in_sinatra)
+
+# Steps to store Tweet data <a id="steps" class="tall">&nbsp;</a>
 
 
 # Relational databases <a id="relational" class="tall">&nbsp;</a>
@@ -133,8 +136,17 @@ https://github.com/jimmoffitt/SocialFlood/blob/master/EventBinner/database/tweet
 
 ## Creating relational databases <a id="creating_relational" class="tall">&nbsp;</a>
 
-These table fields are a bit arbitrary.  I cherry picked some Tweet details and promoted them to be table fields.
-Meanwhile the entire tweet is stored, in case other parsing is needed downstream.
+
+### Details
+
++ Depending on your schema, your code that INSERTs data will probably need to  
++ Name space considerations: 
+  + A common convention is to have *created_at* and *updated_at* fields in every table. These 'built-in' time fields are commonly used to build default indices and sort data, and natively support the critical ability to select records that have changed. Native Tweet JSON also uses the *created_at* name. Since you can't have duplicate field names in a given table, you may decide to store the Tweet creation time is a *posted_at* field instead.    
+  + Frameworks often use the 'id' name for table primary key. If that is the case with your data store framework, then you may need to avoid adding your own (generic) primary key field. For example, when working with ActiveRecord years ago, the *tweets* table had a *tweet_id* and the *user* table had a *user_id* field. 
++ Store the entire JSON payload as a text field? Store the entire Tweet in case other parsing is needed downstream? Assume the maximum Tweet size is ~6kb?
+
+
+
 
 ### Using SQL
 
@@ -144,7 +156,7 @@ Below is an example SQL command that creates a single ```tweets``` table. While 
 ```
 DROP TABLE IF EXISTS tweets;
 CREATE TABLE `tweets` (
-      `id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
+      `tweet_id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
     , `posted_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'       # Tweet created_at
     , `message` TEXT DEFAULT NULL                                       # Tweet message text (whitespace padded) 
     , `user_id` INT(16) UNSIGNED NOT NULL DEFAULT 0                    # numerical id  
@@ -166,32 +178,15 @@ ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 ActiveRecord is a great tool for creating, maintaining, and migrating databases. Below are two examples of building additional tables for storing Twitter data.
 
 ```
-ActiveRecord::Schema.define(:version => 20130306234839) do
+ActiveRecord::Schema.define(:version => 20170306234839) do
 
   create_table 'users', :force => true do |t|
     t.integer  'user_id',                 :limit => 8
    
     t.string   'display_name'
     t.string   'handle'
-    t.string   'bio_link'
     t.string   'bio'
-    t.string   'lang'
-    t.string   'time_zone'
-    t.integer  'utc_offset'
-    t.datetime 'posted_at'
     t.string   'location'
-
-    t.string   'profile_geo_name'
-    t.float    'profile_geo_long'
-    t.float    'profile_geo_lat'
-    t.string   'profile_geo_country_code'
-    t.string   'profile_geo_region'
-    t.string   'profile_geo_subregion'
-    t.string   'profile_geo_locality'
-
-    #compliance details - currently protected account - Need external tool to maintain metadata.
-    t.boolean  'unavailable', :default => false
-    t.datetime 'unavailable_at' 
    
     t.datetime 'created_at',                            :null => false
     t.datetime 'updated_at',                            :null => false
