@@ -10,9 +10,14 @@ A collection of notes on and code snippets for storing Twitter data.
 
 # Introduction <a id="intro" class="tall">&nbsp;</a>
 
+Developers are drawn to Twitter data because of 
+
 ## Language/data-store-type/host combinations <a id="combos" class="tall">&nbsp;</a>
 
-When writing code for storing data there are three fundamental details that determine what that code looks like. First, of course, is the language you are using to write the code. The second is the type of data store you are putting your data into. The third is where your data store is hosted. The data store could be stored with a NoSQL datastore on your local hard drive or it may be hosted remotely in a relational database. 
+When writing code for storing data there are three fundamental details that determine what that code looks like. First, of course, is the *language* you are using to write the code. The second is the *type* of _data store_ you are putting your data into. The third is where your data store is *hosted*. The data store could be stored with a NoSQL datastore on your local hard drive or it may be hosted remotely in a relational database. 
+
+Language 
+The application you are writing may focus on storing Tweets, analyzing Tweets, or displaying Tweets
 
 When inserting data there are huge differences between relational databases, and "NoSQL" data stores. 
 
