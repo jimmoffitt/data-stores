@@ -144,7 +144,7 @@ See here for a [designing schemas discussion](https://github.com/jimmoffitt/data
 
 
 
-### Using SQL
+### Creating tables with SQL
 
 Below is an example SQL command that creates a single ```tweets``` table. While storing Tweets in a single table is not idea, this command illustrates the basic mechanics and syntax for creating tables. 
 
@@ -161,17 +161,22 @@ CREATE TABLE `tweets` (
     
  
     #Build your INDEXs here:
-    # , FULLTEXT INDEX `message_idx` (`message`)  
-    # , INDEX `created_at_idx` (`created_at`)
+    , FULLTEXT INDEX `message_idx` (`message`)  
+    , INDEX `created_at_idx` (`created_at`)
+    , PRIMARY KEY (tweet_id)
+    
 ) 
 ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 ;
 
 ```
 
-### Using Ruby ActiveRecord
+By design I want to disallow duplicate Tweet IDs, so the *tweet_id* field is set as a PRIMARY KEY. If I had no plans to use a framework that used its own reserved *id* field, I'd rename *tweet_id* to *id*, which makes for more concise queries. 
 
-ActiveRecord is a great tool for creating, maintaining, and migrating databases. Below are two examples of building additional tables for storing Twitter data.
+
+### Creating tables with Ruby ActiveRecord
+
+ActiveRecord is a great tool for creating, maintaining, and migrating databases. Below is an example of creating a *users* table.
 
 ```
 ActiveRecord::Schema.define(:version => 20170306234839) do
@@ -194,6 +199,7 @@ Here is an example table for storing #hashtags. Such tables are recommended for 
   
 ```
   create_table 'hashtags', :force => true do |t|
+    #id is maintained by ActiveRecord, enables one tweet_id being associated with multiple entities. 
     t.integer  'tweet_id', :limit => 8
     t.string   'hashtag'
     t.datetime 'created_at',               :null => false
