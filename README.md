@@ -1,7 +1,11 @@
 # data-stores
 A collection of notes on and code snippets for storing Twitter data.
 
-# Introduction
++ [Introduction](#intro)
++ [Getting started material](#reading)
++ [Relational databases](#relational)
+
+# Introduction <a id="intro" class="tall">&nbsp;</a>
 
 ## Language/data-store-type/host combinations
 
@@ -42,7 +46,7 @@ Given these core differences, your path to storing Tweets, and the time to get t
   + Default: Mongo DB. Other targets: Amazon, other cloud dialects. 
   
 
-## Reading material for getting started
+## Getting started material <a id="reading" class="tall">&nbsp;</a>
 
 ### NoSQL
 
@@ -83,7 +87,7 @@ Ruby
 + http://backend.turing.io/module2/lessons/intro_to_active_record_in_sinatra
 
 
-# Relational databases
+# Relational databases <a id="relational" class="tall">&nbsp;</a>
 
 
 
@@ -94,9 +98,9 @@ sql = "REPLACE INTO tweets (id, posted_at, message, user_id, created_at, updated
 
 
 
-## Designing schemas
+## Designing schemas <a id="schema_design" class="tall">&nbsp;</a>
 
-## Creating relational databases 
+## Creating relational databases <a id="creating_relational" class="tall">&nbsp;</a>
 
 These table fields are a bit arbitrary.  I cherry picked some Tweet details and promoted them to be table fields.
 Meanwhile the entire tweet is stored, in case other parsing is needed downstream.
