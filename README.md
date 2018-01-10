@@ -2,7 +2,7 @@
 A collection of notes on and code snippets for storing Twitter data.
 
 + [Introduction](#intro)
-  + [Language/data-store-type/host combinations](#combos)
+  + [language/type/host combinations](#combos)
 + [Getting started material](#reading)
 + [Relational databases](#relational)
   + [Designing schemas](#schema_design)
