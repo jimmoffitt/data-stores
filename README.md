@@ -22,18 +22,16 @@ The application you are writing may focus on storing Tweets, analyzing Tweets, o
 ### Datastore type
 When inserting data there are huge differences between relational databases, and "NoSQL" data stores. 
 
-[Relational databases](https://en.wikipedia.org/wiki/Relational_database) consist of 'tables' based on a static 'schema'. Nearly all databases support the querying language SQL, although there are *dialects* depending on how the database type. When inserting data into a database table, you need to first parse the Tweet JSON, extracting intities that will go into a specific table 'field'. After parsing, SQL statements that map JSON attributes to table fields are constructed. These SQL statements are then executed using a language-specific database package/library.
+[Relational databases](https://en.wikipedia.org/wiki/Relational_database) consist of 'tables' based on a static 'schema'. Nearly all databases support the querying language SQL, although there are *dialects* depending on the database type. When inserting data into a database table, you need to first parse the Tweet JSON, extracting intities that will go into specific table 'fields'. After parsing, SQL statements that map JSON attributes to table fields are constructed. These SQL statements are then executed using a language-specific database package/library.
 
 The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a variety of things, but at their core they are made up of simple key-value pairs. When storing Tweets, these values are the individual Tweet JSON objects, and the NoSQL 'engine' uses the keys to store and retrieve these objects. NoSQL can be such a great data store solution for Tweet data precisely because it is built to store and manage JSON objects. Since all Twitter APIs return JSON objects, storing them with a NoSQL solution requires no schema design and code that exactly reflects that design. 
 
 ### Host
-
-Given these core differences, your path to storing Tweets, and the time to get there, will be very different. If you using a database, a first step is designing your schema, creating your tables, and constructing SQL statements for both inserting and retrieving data. If you are using a JSON data store, you can skip those steps, write some simple code for inserting the Tweet JSON, and move on to designing queries.
-
+To get started quickly, sometimes setting up a local datastore is a good way to go. Or maybe you have some internal service you can work with. In many cases you'll deploy and host a datastore using a cloud-based platform. A key assumption is that these data store systems are all reachable by IP address, and the underlying code does not care. Rather, different hosts are accessed via configuration details. 
 
 ### Options?
 
-+ Languages? Great to start with Python, Ruby, Node, and Scala.
++ Languages? Great to start with Python, Ruby, and Node. Scala would be good too.
 + Data store types? 
   + [Relational databases](https://en.wikipedia.org/wiki/Relational_database): schema/table based. MySQL, PostgreSQL, SQLite, SQL Server
   + [NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL): schema-less JSON collections. MongoDB, DynamoDB (AWS), Domino (IBM)
@@ -55,6 +53,9 @@ Given these core differences, your path to storing Tweets, and the time to get t
   + Default: MySQL. Other targets: Postgres, sqlite, SQL Server
 + NoSQL code will readily port to other engines.
   + Default: Mongo DB. Other targets: Amazon, other cloud dialects. 
+ 
+Given these core differences, your path to storing Tweets, and the time to get there, will be very different. If you are using a database, a first step is designing your schema, creating your tables, and constructing SQL statements for both inserting and retrieving data. If you are using a JSON data store, you can skip those steps, write some simple code for inserting the Tweet JSON, and move on to designing queries. 
+ 
  
 ## Getting started material <a id="reading" class="tall">&nbsp;</a>
 
@@ -97,6 +98,19 @@ Ruby
 
 # Steps to store Tweet data <a id="steps" class="tall">&nbsp;</a>
 
++ Choose language, datastore type, and target host. 
++ Design schema and initial queries.
++ Deploy data store on target host.
++ Set up development environment.
+  + Install language specific data store package/gem/library.
+  + Install datastore engine tool ("workbench", query UI)
++ Collect and store Tweets of interest.
+  + Write code to INSERT data.
++ Start asking questions about that data. 
+  + Write code to query data. (Sort of a part 2 for this project).
+
+
+
 
 # Relational databases <a id="relational" class="tall">&nbsp;</a>
 
@@ -132,10 +146,11 @@ See here for a [designing schemas discussion](https://github.com/jimmoffitt/data
 
 ## Creating relational databases <a id="creating_relational" class="tall">&nbsp;</a>
 
-
 ### Details
 
-+ Depending on your schema, your code that INSERTs data will probably need to  
++ Depending on your schema, your code that INSERTs data will probably need to support the mappings between Tweet JSON attributes and data store fields. 
+  + Tweet objects can have multiple versions of fundamental details like the Tweet message and Twitter entities. 
+
 + Name space considerations: 
   + A common convention is to have *created_at* and *updated_at* fields in every table. These 'built-in' time fields are commonly used to build default indices and sort data, and natively support the critical ability to select records that have changed. Native Tweet JSON also uses the *created_at* name. Since you can't have duplicate field names in a given table, you may decide to store the Tweet creation time is a *posted_at* field instead.    
   + Frameworks often use the 'id' name for table primary key. If that is the case with your data store framework, then you may need to avoid adding your own (generic) primary key field. For example, when working with ActiveRecord years ago, the *tweets* table had a *tweet_id* and the *user* table had a *user_id* field. 
