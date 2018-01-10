@@ -110,7 +110,7 @@ Below is an example SQL command that creates a single ```tweets``` table. While 
 DROP TABLE IF EXISTS tweets;
 CREATE TABLE `tweets` (
       `tweet_id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
-    , `created_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'       # Tweet created_at
+    , `posted_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'       # Tweet created_at
     , `body` TEXT DEFAULT NULL                                          # activity body text (whitespace padded) 
     
     , `payload` TEXT DEFAULT NULL                                       #Entire payload of JSON activity...?   
@@ -197,7 +197,7 @@ ActiveRecord::Schema.define(:version => 20130306234839) do
     t.string   'lang'
     t.string   'time_zone'
     t.integer  'utc_offset'
-    t.datetime 'created_at'
+    t.datetime 'posted_at'
     t.string   'location'
 
     t.string   'profile_geo_name'
