@@ -31,7 +31,7 @@ The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a
 Given these core differences, your path to storing Tweets, and the time to get there, will be very different. If you using a database, a first step is designing your schema, creating your tables, and constructing SQL statements for both inserting and retrieving data. If you are using a JSON data store, you can skip those steps, write some simple code for inserting the Tweet JSON, and move on to designing queries.
 
 
-### Options
+### Options?
 
 + Languages? Great to start with Python, Ruby, Node, and Scala.
 + Data store types? 
