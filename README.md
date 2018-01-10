@@ -126,13 +126,7 @@ sql = "INSERT INTO tweets (id, posted_at, message, user_id, created_at, updated_
 
 What questions do you want to ask of your Tweet collection? Are you curious about what languages are being used? Do you want to run statistics on what hashtags are being included? Are there certain keywords you care most about? Are you only working with Tweets that have videos? The answers to these types of questions will drive your schema design decisions.
 
-
-
-
-Here is some example Ruby code that creates SQL SELECT queries:
-https://github.com/jimmoffitt/SocialFlood/blob/master/EventBinner/database/tweet_sql.rb
-
-
+See here for a [designing schemas discussion](https://github.com/jimmoffitt/data-stores/tree/master/schemas).
 
 ## Creating relational databases <a id="creating_relational" class="tall">&nbsp;</a>
 
