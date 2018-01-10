@@ -5,7 +5,7 @@ A collection of notes on and code snippets for storing Twitter data.
 
 ## Language/data-store-type/host combinations
 
-When writing code for storing data there are three fundamental details that determine what that code looks like. First, of course, is the language you are using to write the code. The second is the type of data store you are putting your data into. The third is where your data store is hosted. The data store could be stored on your local hard drive or it may be hosted remotely. 
+When writing code for storing data there are three fundamental details that determine what that code looks like. First, of course, is the language you are using to write the code. The second is the type of data store you are putting your data into. The third is where your data store is hosted. The data store could be stored with a NoSQL datastore on your local hard drive or it may be hosted remotely in a relational database. 
 
 When inserting data there are huge differences between relational databases, and "NoSQL" data stores. 
 
