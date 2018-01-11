@@ -110,6 +110,8 @@ Ruby
 
 + Choose language, datastore type, and target host. 
 + Design schema and initial queries.
+  + Relational database: mapping attributes and metadata "on the way in", with consistent querying design.
+  + NoSQL: 
 + Deploy data store on target host.
 + Set up development environment.
   + Install language specific data store package/gem/library.
@@ -118,6 +120,14 @@ Ruby
   + Write code to INSERT data.
 + Start asking questions about that data. 
   + Write code to query data. (Sort of a part 2 for this project).
+
+```
+ cat tweet.json | jq '.quoted_status.extended_tweet.entities.hashtags[].text'
+"Testing"
+"Documentation"
+"RecipesForDataParsing"
+```
+
 
 
 
