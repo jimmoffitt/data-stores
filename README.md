@@ -29,12 +29,14 @@ The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a
 ### Host
 To get started quickly, sometimes setting up a local datastore is a good way to go. Or maybe you have some internal service you can work with. In many cases you'll deploy and host a datastore using a cloud-based platform. A key assumption is that these data store systems are all reachable by IP address, and the underlying code does not care. Rather, different hosts are accessed via configuration details. 
 
+Ruby gem connection string:
 ```
- @client = Mysql2::Client.new(:host => @host_label, :port => @port, :username => @user_name, :database => @collection )
+ @client = Mysql2::Client.new(:host => '127.0.0.1', :port => 3306, :username => 'jim', :database => 'tweets' )
 ```
 
+Python package connection string:
 ```
-cnx = mysql.connector.connect(user='scott', password='tiger', host='127.0.0.1', database='tweets')
+cnx = mysql.connector.connect(user='jim', password='tiger', host='127.0.0.1', :port => 3306, database='tweets')
 ```
 
 ### Options?
