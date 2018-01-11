@@ -5,6 +5,7 @@ A collection of notes on and code snippets for storing Twitter data.
   + [language/type/host combinations](#combos)
 + [Getting started material](#reading)
 + [Steps to storing Tweet data](#steps)
++ [Mapping correct JSON attributes?](#mapping)
 + [Relational databases](#relational)
   + [Designing schemas](#schema_design)
   + [Creating databases](#creating_relational)
@@ -24,7 +25,7 @@ When inserting data there are huge differences between relational databases, and
 
 [Relational databases](https://en.wikipedia.org/wiki/Relational_database) consist of 'tables' based on a static 'schema'. Nearly all databases support the querying language SQL, although there are *dialects* depending on the database type. When inserting data into a database table, you need to first parse the Tweet JSON, extracting intities that will go into specific table 'fields'. After parsing, SQL statements that map JSON attributes to table fields are constructed. These SQL statements are then executed using a language-specific database package/library. When working with database, there is more 'getting started' effort to start *storing* data, including the important task of designing your schema.  
 
-The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a variety of things, but at their core they are made up of simple key-value pairs. When storing Tweets, these values are the individual Tweet JSON objects, and the NoSQL 'engine' uses the keys to store and retrieve these objects. NoSQL can be such a great data store solution for Tweet data precisely because it is built to store and manage JSON objects. Since all Twitter APIs return JSON objects, storing them with a NoSQL solution requires no schema design and code that exactly reflects that design. When working with NoSQL engines, there is less 'getting started' details since they readily handle JSON objects, meaning you can move quickly to storing data. However, there is likely more effort ahead when it comes to querying data. Querying code will need to encapsulate knowledge on how to navigate the JSON. 
+The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a variety of things, but at their core they are made up of simple key-value pairs. When storing Tweets, these values are the individual Tweet JSON objects, and the NoSQL 'engine' uses the keys to store and retrieve these objects. NoSQL can be such a great data store solution for Tweet data precisely because it is built to store and manage JSON objects. Since all Twitter APIs return JSON objects, storing them with a NoSQL solution requires no schema design and code that exactly reflects that design. When working with NoSQL engines, there is less 'getting started' details since they readily handle JSON objects, meaning you can move quickly to storing data. However, there is likely more effort ahead when it comes to querying data. Querying code will need to encapsulate knowledge, as with the case of Tweet messages and entities, on how to navigate the JSON to read the correct attributes. 
 
 ### Host
 To get started quickly, sometimes setting up a local datastore is a good way to go. Or maybe you have some internal service you can work with. In many cases you'll deploy and host a datastore using a cloud-based platform. A key assumption is that these data store systems are all reachable by IP address, and the underlying code does not care. Rather, different hosts are accessed via configuration details. 
@@ -122,22 +123,43 @@ Ruby
 + Start asking questions about that data. 
   + Write code to query data. (Sort of a part 2 for this project).
 
-# Mapping attributes
+# Mapping correct JSON attributes? <a id="mapping" class="tall">&nbsp;</a>
+
+Take this example Tweet, [tweet_rt_qt.json](https://github.com/jimmoffitt/data-stores/blob/master/tweets/tweet_rt_qt.json), which is a Retweet of a Quote Tweet, which is a Quote Tweet of another Quote Tweet. 
 
 ```
  cat tweet_rt_qt.json | jq '.text'
-
 ```
 
 ```
- cat tweet_rt_qt.json | jq '.quoted_status.text'
-
+cat tweet_rt_qt.json | jq '.extended_tweet.full_text'
 ```
 
 ```
- cat tweet_rt_qt.json | jq '.quoted_status.extended_tweet.full_text'
+cat tweet_rt_qt.json | jq '.quoted_status.text'
+```
 
 ```
+cat tweet_rt_qt.json | jq '.quoted_status.extended_tweet.full_text'
+```
+
+```
+cat tweet_rt_qt.json | jq '.retweeted_status.text'
+```
+
+```
+cat tweet_rt_qt.json | jq '.retweeted_status.extended_tweet.full_text'
+```
+
+```
+cat tweet_rt_qt.json | jq '.retweeted_status.quoted_status.text'
+```
+
+```
+cat tweet_rt_qt.json | jq '.retweeted_status.quoted_status.extended_tweet.full_text'
+```
+
+
 
 
 
