@@ -5,7 +5,7 @@ Here is some example Ruby code that creates SQL SELECT queries:
 https://github.com/jimmoffitt/SocialFlood/blob/master/EventBinner/database/tweet_sql.rb
 
 
-### Using SQL
+### Creating tables with SQL
 
 Below is an example SQL command that creates a single ```tweets``` table. While storing Tweets in a single table is not idea, this command illustrates the basic mechanics and syntax for creating tables. 
 
@@ -15,23 +15,16 @@ DROP TABLE IF EXISTS tweets;
 CREATE TABLE `tweets` (
       `tweet_id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
     , `posted_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'       # Tweet created_at
-    , `body` TEXT DEFAULT NULL                                          # activity body text (whitespace padded) 
+    , `message` TEXT DEFAULT NULL                                       # Tweet message 
     
-    , `payload` TEXT DEFAULT NULL                                       #Entire payload of JSON activity...?   
-    , `verb` CHAR(16) DEFAULT NULL                                      # post/share/compliance 
-    , `repost_of` BIGINT UNSIGNED NOT NULL DEFAULT 0                    #retweet 
+    , `payload` TEXT DEFAULT NULL                                       # Entire payload of JSON activity...?   
+    , `verb` CHAR(16) DEFAULT NULL                                      # post/retweet/quote
+    , `repost_of` BIGINT UNSIGNED NOT NULL DEFAULT 0                    # Retweet, Quote Tweet 
 
-    , `twitter_lang` CHAR(8) DEFAULT NULL                               # tweet body lang (tw) 
-    , `generator` CHAR(255) DEFAULT NULL                                # service / platform
-    , `link` CHAR(255) DEFAULT NULL                                     # www activity location url 
+    , `lang` CHAR(8) DEFAULT NULL                                       # tweet message lang 
+    , `source` CHAR(255) DEFAULT NULL                                   # service / platform
+    , `link` CHAR(255) DEFAULT NULL                                     # twitter.com Tweet url 
 
-    #These are flattened arrays, comma delimited (?)
-    , `hashtags` CHAR(140) DEFAULT NULL                                 # symbol (e.g. cashtag) 
-    , `mentions` CHAR(140) DEFAULT NULL                                 # mention (display name) 
-    , `urls` TEXT DEFAULT NULL                                          # url (t.co)      # media (photo) id
-    , `media` TEXT DEFAULT NULL                                         # media (photo) expanded url
-    , `rule_values` TEXT NOT NULL DEFAULT ''                            # Rule/filter that returned this data
-    , `rule_tags` TEXT NOT NULL DEFAULT ''                              # Rules' associated tags
 
     #Tweet geo details - Geo-tagged tweets only.
     , `place` CHAR(32) DEFAULT NULL
@@ -83,8 +76,29 @@ ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 ;
 
 ```
+#### Flattened arrays or separate tables?
 
-### Using Ruby ActiveRecord
+
+```
+    #These are flattened arrays, comma delimited (?)
+    , `hashtags` CHAR(140) DEFAULT NULL                                 # symbol (e.g. cashtag) 
+    , `mentions` CHAR(140) DEFAULT NULL                                 # mention (display name) 
+    , `urls` TEXT DEFAULT NULL                                          # url (t.co)      # media (photo) id
+    , `media` TEXT DEFAULT NULL                                         # media (photo) expanded url
+    , `rule_tags` TEXT NOT NULL DEFAULT ''                              # Rules' associated tags
+```
+
+```
+#DROP TABLE IF EXISTS hashtags; # use with caution. 
+CREATE TABLE `hashtags` (
+      `tweet_id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
+    , `hashtag` TEXT DEFAULT NULL                                       # hashtag
+    , `created_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
+    , `updated_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
+    
+```
+
+### Creating tables with Ruby ActiveRecord
 
 ActiveRecord is a great tool for creating, maintaining, and migrating databases. Below are two examples of building additional tables for storing Twitter data.
 
