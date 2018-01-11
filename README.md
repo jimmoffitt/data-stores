@@ -110,8 +110,9 @@ Ruby
 
 + Choose language, datastore type, and target host. 
 + Design schema and initial queries.
-  + Relational database: mapping attributes and metadata "on the way in", with consistent querying design.
-  + NoSQL: 
+  + Relational database: mapping attributes and metadata "on the way in", enabling consistent querying design.
+    + JSON parsing code 'knows' which attributes to grab, and can rename attributes in the process.
+  + NoSQL: can just throw the JSON objects in, and build smart queries that 'know' which attributes to grab? Or 'normalize' and cherry-pick attributes on the way in?
 + Deploy data store on target host.
 + Set up development environment.
   + Install language specific data store package/gem/library.
@@ -121,14 +122,22 @@ Ruby
 + Start asking questions about that data. 
   + Write code to query data. (Sort of a part 2 for this project).
 
+# Mapping attributes
+
 ```
- cat tweet.json | jq '.quoted_status.extended_tweet.entities.hashtags[].text'
-"Testing"
-"Documentation"
-"RecipesForDataParsing"
+ cat tweet_rt_qt.json | jq '.text'
+
 ```
 
+```
+ cat tweet_rt_qt.json | jq '.quoted_status.text'
 
+```
+
+```
+ cat tweet_rt_qt.json | jq '.quoted_status.extended_tweet.full_text'
+
+```
 
 
 
