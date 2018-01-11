@@ -125,7 +125,7 @@ Ruby
 
 # Mapping correct JSON attributes? <a id="mapping" class="tall">&nbsp;</a>
 
-Take this example Tweet, [tweet_rt_qt.json](https://github.com/jimmoffitt/data-stores/blob/master/tweets/tweet_rt_qt.json), which is a Retweet of a Quote Tweet, which is a Quote Tweet of another Quote Tweet. 
+Take this example Tweet, [tweet_rt_qt.json](https://github.com/jimmoffitt/data-stores/blob/master/tweets/tweet_rt_qt.json), which is a Retweet of a Quote Tweet. 
 
 ```
  cat tweet_rt_qt.json | jq '.text'
