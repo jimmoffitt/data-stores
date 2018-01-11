@@ -32,12 +32,12 @@ To get started quickly, sometimes setting up a local datastore is a good way to 
 
 Ruby gem connection string:
 ```
- @client = Mysql2::Client.new(:host => '127.0.0.1', :port => 3306, :username => 'jim', :database => 'tweets' )
+ @client = Mysql2::Client.new(:host => '127.0.0.1', :port => 3306, :username => 'jim', :password => 'NoMyP455w0rd', :database => 'tweets' )
 ```
 
 Python package connection string:
 ```
-cnx = mysql.connector.connect(user='jim', password='tiger', host='127.0.0.1', :port => 3306, database='tweets')
+cnx = mysql.connector.connect(user='jim', password='NoMyP455w0rd', host='127.0.0.1', :port => 3306, database='tweets')
 ```
 
 ### Options?
@@ -125,7 +125,20 @@ Ruby
 
 # Mapping correct JSON attributes? <a id="mapping" class="tall">&nbsp;</a>
 
-Take this example Tweet, [tweet_rt_qt.json](https://github.com/jimmoffitt/data-stores/blob/master/tweets/tweet_rt_qt.json), which is a Retweet of a Quote Tweet. 
+With the introduction of 'hidden text' (replies and native media URLs not counted as Tweet message characters) and #280 Tweets, Tweet JSON payloads now have multiple attributes for the Tweet message and the Tweet's entities, with some of those containing incomplete and truncated values. Take this example of a #280 Tweet, [tweet_extended.json](https://github.com/jimmoffitt/data-stores/blob/master/tweets/tweet_extended.json). Using jq, let's extract the two message fields:
+
+```
+ cat tweet_extended.json | jq '.text'
+  --> 'Starting a new project focused on generating code samples for storing Tweet data. So, this is an example extended T\u2026 https:\/\/t.co\/UMCKmdqOwK'
+```
+
+```
+ cat tweet_extended.json | jq 'extended_tweets.full_text'
+  --> 'Starting a new project focused on generating code samples for storing Tweet data. So, this is an example extended Tweet with more than 140 characters. For relational databases, the JSON parser can grab the non-truncated message field.' 
+```
+If you load the 'text' field as the *message* database field, you are storing the incomplete message. Your JSON parser needs to have the smarts to detect an extended Tweet, and in this case store the 'extended_tweet.full_text' into the *message* field. Luckily, this is pretty easy to due, since the 'extended_tweet' object is only there when it is an extended Tweet, and there is a 'truncated' boolean field that is always there. When 'truncated' is true the payload contains an extended Tweet.
+
+Take this more complicated example Tweet, [tweet_rt_qt.json](https://github.com/jimmoffitt/data-stores/blob/master/tweets/tweet_rt_qt.json), which is a Retweet of a Quote Tweet. The following jq commands illustrate the multiple places in the JSON payload where Tweet/Retweet/Quote messages are provided. Which one do you need to grab? Will your JSON parser have the smarts to grab the 'right' one and INSERT it into a standardized field name such as *message*? If you are querying a NoSQL JSON collection, how does the querying code know which one to grab?
 
 ```
  cat tweet_rt_qt.json | jq '.text'
