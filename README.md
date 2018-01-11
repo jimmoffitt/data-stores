@@ -22,12 +22,20 @@ The application you are writing may focus on storing Tweets, analyzing Tweets, o
 ### Datastore type
 When inserting data there are huge differences between relational databases, and "NoSQL" data stores. 
 
-[Relational databases](https://en.wikipedia.org/wiki/Relational_database) consist of 'tables' based on a static 'schema'. Nearly all databases support the querying language SQL, although there are *dialects* depending on the database type. When inserting data into a database table, you need to first parse the Tweet JSON, extracting intities that will go into specific table 'fields'. After parsing, SQL statements that map JSON attributes to table fields are constructed. These SQL statements are then executed using a language-specific database package/library.
+[Relational databases](https://en.wikipedia.org/wiki/Relational_database) consist of 'tables' based on a static 'schema'. Nearly all databases support the querying language SQL, although there are *dialects* depending on the database type. When inserting data into a database table, you need to first parse the Tweet JSON, extracting intities that will go into specific table 'fields'. After parsing, SQL statements that map JSON attributes to table fields are constructed. These SQL statements are then executed using a language-specific database package/library. When working with database, there is more 'getting started' effort to start *storing* data, including the important task of designing your schema.  
 
 The phrase "[NoSQL data stores](https://en.wikipedia.org/wiki/NoSQL)" can mean a variety of things, but at their core they are made up of simple key-value pairs. When storing Tweets, these values are the individual Tweet JSON objects, and the NoSQL 'engine' uses the keys to store and retrieve these objects. NoSQL can be such a great data store solution for Tweet data precisely because it is built to store and manage JSON objects. Since all Twitter APIs return JSON objects, storing them with a NoSQL solution requires no schema design and code that exactly reflects that design. 
 
 ### Host
 To get started quickly, sometimes setting up a local datastore is a good way to go. Or maybe you have some internal service you can work with. In many cases you'll deploy and host a datastore using a cloud-based platform. A key assumption is that these data store systems are all reachable by IP address, and the underlying code does not care. Rather, different hosts are accessed via configuration details. 
+
+```
+ @client = Mysql2::Client.new(:host => @host_label, :port => @port, :username => @user_name, :database => @collection )
+```
+
+```
+cnx = mysql.connector.connect(user='scott', password='tiger', host='127.0.0.1', database='tweets')
+```
 
 ### Options?
 
