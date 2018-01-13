@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Collection of things related to designing and deploying relational database schemas.
+Collection of things related to designing and deploying relational database schemas. These SQL queries that can be used to create tables in any tool that executes SQL commands. If you manually design/build your tables, you can usually export the SQL that would recreate them.
 
 
 
@@ -15,6 +15,16 @@ Collection of things related to designing and deploying relational database sche
 
 
 ## SQL snippets:
+
+### Creating User table.
+
+```
+
+
+
+```
+
+### Creating tables for storing arrays of Twitter entities.
 
 ```
 CREATE TABLE `hashtags` (
