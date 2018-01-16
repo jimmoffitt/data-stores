@@ -35,12 +35,16 @@ CREATE TABLE `tweets` (
   `retweet_count` tinyint(11) DEFAULT NULL,
   `reply_count` tinyint(11) DEFAULT NULL,
   `favorited_count` tinyint(4) DEFAULT NULL,
+  `place` int(11) DEFAULT NULL,
+  `country_code` int(11) DEFAULT NULL,
+  `lat` decimal(9,6) DEFAULT NULL,
+  `long` decimal(9,6) DEFAULT NULL,
+  `lat_box` decimal(9,6) DEFAULT NULL,
+  `long_box` decimal(9,6) DEFAULT NULL,
   `created_at` datetime DEFAULT '0000-00-00 00:00:00',
   `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
 ```
 
 ### Creating ```users```table.
@@ -71,8 +75,8 @@ CREATE TABLE `users` (
   `sub_region` varchar(40) DEFAULT NULL,
   `locality` varchar(40) DEFAULT NULL,
   `geo_full_name` varchar(255) DEFAULT NULL,
-  `lat` decimal(8,6) DEFAULT NULL,
-  `long` decimal(8,6) DEFAULT NULL,
+  `lat` decimal(9,6) DEFAULT NULL,
+  `long` decimal(9,6) DEFAULT NULL,
   `created_at` datetime DEFAULT '0000-00-00 00:00:00',
   `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
