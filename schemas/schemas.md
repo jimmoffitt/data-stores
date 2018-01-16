@@ -6,7 +6,8 @@ Collection of things related to designing and deploying relational database sche
 
 
 Initial questions/decisions:
-[] Store Tweet and User IDs as strings or INTs? Parsing id_strs (strings), but store as long INTs?
++ [] Store Tweet and User IDs as strings or INTs? Parsing id_strs (strings), but store as long INTs?
++ [] Need to add Tweet geo details.
 
 
 
@@ -47,8 +48,6 @@ CREATE TABLE `tweets` (
 
 
 ```
-
-
 
 ### Creating ```users```table.
 
@@ -115,20 +114,6 @@ CREATE TABLE `links` (
 ```
 
 ```
-CREATE TABLE `native_media` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `tweet_id` bigint(25) unsigned NOT NULL,
-  `type` varchar(20) DEFAULT NULL,
-  `media_id` int(11) DEFAULT NULL,
-  `expanded_url` text,
-  `display_url` varchar(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT '0000-00-00 00:00:00',
-  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-```
-
-```
 CREATE TABLE `mentions` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tweet_id` bigint(25) unsigned NOT NULL DEFAULT '0',
@@ -151,6 +136,21 @@ CREATE TABLE `symbols` (
 ```
 
 
+### Creating table for *Native Media*
+```
+CREATE TABLE `native_media` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tweet_id` bigint(25) unsigned NOT NULL,
+  `type` varchar(20) DEFAULT NULL,
+  `media_id` int(11) DEFAULT NULL,
+  `expanded_url` text,
+  `display_url` varchar(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
 
 ```
 CREATE TABLE `matching_rules` (
@@ -165,6 +165,10 @@ CREATE TABLE `matching_rules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
+
+### Other details
+
+If you are using scripts to iterate on your schema design, the following SQL command can be used to delete any current table that is being created. So use with caution.
 
 ```
 #DROP TABLE IF EXISTS hashtags; # use with caution. 
