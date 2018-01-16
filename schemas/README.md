@@ -10,7 +10,7 @@ If using MySQL, you will want to review available Data Types: https://dev.mysql.
 
 ### Creating tables with SQL
 
-See [HERE]() for example SQL for creating a 'get started' schema.
+See [HERE](https://github.com/jimmoffitt/data-stores/blob/master/schemas/schemas.md) for example SQL for creating a 'get started' schema.
 
 ### Creating tables with Ruby ActiveRecord
 
