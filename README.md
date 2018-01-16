@@ -290,3 +290,14 @@ Here is an example table for storing #hashtags. Such tables are recommended for 
 Next!
 
 
+## Mongo DB
+
+Well, that was easy enough. At least throwing in non-pre-processed Tweet JSON docs into a collection. See code [HERE](https://github.com/jimmoffitt/data-stores/blob/master/code/python/mongo.py).
+
+
+### Example filters/queries:
+{'user.url': {$ne : null}}
+
+
+
+
