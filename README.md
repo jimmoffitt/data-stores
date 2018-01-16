@@ -292,6 +292,18 @@ Next!
 
 ## Mongo DB
 
+
+Get started recipe:
+
+```
+mkdir py-mongo
+cd py-mongo/
+pip install pymongo
+#brew install mongodb 
+brew upgrade mongodb
+sudo mongod
+```
+
 Well, that was easy enough. At least throwing in non-pre-processed Tweet JSON docs into a collection. See code [HERE](https://github.com/jimmoffitt/data-stores/blob/master/code/python/mongo.py).
 
 
