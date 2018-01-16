@@ -5,6 +5,10 @@
 Collection of things related to designing and deploying relational database schemas. These SQL queries that can be used to create tables in any tool that executes SQL commands. If you manually design/build your tables, you can usually export the SQL that would recreate them.
 
 
+Initial questions/decisions:
+[] Store Tweet and User IDs as strings or INTs? Parsing id_strs (strings), but store as long INTs?
+
+
 
 ## Code snippets
 
@@ -16,10 +20,69 @@ Collection of things related to designing and deploying relational database sche
 
 ## SQL snippets:
 
-### Creating User table.
+### Creating ```tweets``` table
+
+```
+CREATE TABLE `tweets` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tweet_id` bigint(25) unsigned DEFAULT NULL,
+  `user_id` bigint(11) DEFAULT NULL,
+  `message` varchar(300) DEFAULT NULL,
+  `posted_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `truncated` int(11) DEFAULT NULL,
+  `display_text_start` int(11) DEFAULT NULL,
+  `display_text_end` int(11) DEFAULT NULL,
+  `source` int(11) DEFAULT NULL,
+  `lang` int(11) DEFAULT NULL,
+  `reweet_of` int(11) DEFAULT NULL,
+  `quote_of` int(11) DEFAULT NULL,
+  `quote_count` tinyint(11) DEFAULT NULL,
+  `retweet_count` tinyint(11) DEFAULT NULL,
+  `reply_count` tinyint(11) DEFAULT NULL,
+  `favorited_count` tinyint(4) DEFAULT NULL,
+  `created_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 ```
 
+
+
+### Creating ```users```table.
+
+```
+CREATE TABLE `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(25) unsigned NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `handle` varchar(100) NOT NULL DEFAULT '',
+  `location` varchar(100) DEFAULT NULL,
+  `url` varchar(100) DEFAULT NULL,
+  `bio` varchar(255) DEFAULT NULL,
+  `verified` tinyint(1) DEFAULT '0',
+  `protected` tinyint(1) DEFAULT '0',
+  `followers_count` int(11) unsigned DEFAULT NULL,
+  `friends_count` int(11) unsigned DEFAULT NULL,
+  `listed_count` int(11) unsigned DEFAULT NULL,
+  `favourites_count` int(11) unsigned DEFAULT NULL,
+  `statuses_count` int(11) unsigned DEFAULT NULL,
+  `posted_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `lang` varchar(4) DEFAULT NULL,
+  `time_zone` varchar(40) DEFAULT NULL,
+  `utc_offset` int(11) DEFAULT NULL,
+  `country_code` varchar(4) DEFAULT NULL,
+  `region` varchar(40) DEFAULT NULL,
+  `sub_region` varchar(40) DEFAULT NULL,
+  `locality` varchar(40) DEFAULT NULL,
+  `geo_full_name` varchar(255) DEFAULT NULL,
+  `lat` decimal(8,6) DEFAULT NULL,
+  `long` decimal(8,6) DEFAULT NULL,
+  `created_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 ```
@@ -28,34 +91,79 @@ Collection of things related to designing and deploying relational database sche
 
 ```
 CREATE TABLE `hashtags` (
-      `tweet_id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
-    , `hashtag` TEXT DEFAULT NULL                                       # entities.hashtags
-    , `created_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
-    , `updated_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
-)    
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tweet_id` bigint(25) unsigned NOT NULL DEFAULT '0',
+  `hashtag` text,
+  `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;    
 ```
 
 ```
 CREATE TABLE `links` (
-      `tweet_id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
-    , `url` TEXT DEFAULT NULL                                            #As unwound as possible
-    , `title` TEXT DEFAULT NULL                                          #HTML title  
-    , `description` TEXT DEFAULT NULL                                    #HTML description          
-    , `created_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
-    , `updated_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
-)
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tweet_id` bigint(25) unsigned NOT NULL DEFAULT '0',
+  `unwound_url` text,
+  `display_url` text,
+  `title` varchar(100) DEFAULT '',
+  `description` varchar(500) DEFAULT '',
+  `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
 ```
 CREATE TABLE `native_media` (
-      `tweet_id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
-    , `type` TEXT DEFAULT NULL                                       # extended_entities.hashtags
-    TODO
-    , `created_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
-    , `updated_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
-)    
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tweet_id` bigint(25) unsigned NOT NULL,
+  `type` varchar(20) DEFAULT NULL,
+  `media_id` int(11) DEFAULT NULL,
+  `expanded_url` text,
+  `display_url` varchar(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
+```
+CREATE TABLE `mentions` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tweet_id` bigint(25) unsigned NOT NULL DEFAULT '0',
+  `mention` varchar(20) DEFAULT '',
+  `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+```
+CREATE TABLE `symbols` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tweet_id` bigint(25) unsigned DEFAULT NULL,
+  `symbol` varchar(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+
+
+```
+CREATE TABLE `matching_rules` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `tweet_id` bigint(25) unsigned DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  `rule_id` bigint(20) unsigned DEFAULT NULL,
+  `created_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `syntax` varchar(3000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
 
 
 ```
