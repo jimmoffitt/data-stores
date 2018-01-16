@@ -65,6 +65,7 @@ CREATE TABLE `users` (
   `lang` varchar(4) DEFAULT NULL,
   `time_zone` varchar(40) DEFAULT NULL,
   `utc_offset` int(11) DEFAULT NULL,
+  `klout_score` tinyint(3) unsigned DEFAULT NULL,
   `country_code` varchar(4) DEFAULT NULL,
   `region` varchar(40) DEFAULT NULL,
   `sub_region` varchar(40) DEFAULT NULL,
@@ -76,8 +77,6 @@ CREATE TABLE `users` (
   `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
 ```
 
 ### Creating tables for storing arrays of Twitter entities.
