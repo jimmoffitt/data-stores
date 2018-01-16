@@ -32,6 +32,7 @@ CREATE TABLE `hashtags` (
     , `hashtag` TEXT DEFAULT NULL                                       # entities.hashtags
     , `created_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
     , `updated_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
+)    
 ```
 
 ```
@@ -42,6 +43,7 @@ CREATE TABLE `links` (
     , `description` TEXT DEFAULT NULL                                    #HTML description          
     , `created_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
     , `updated_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
+)
 ```
 
 ```
@@ -51,6 +53,7 @@ CREATE TABLE `native_media` (
     TODO
     , `created_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
     , `updated_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'  
+)    
 ```
 
 
