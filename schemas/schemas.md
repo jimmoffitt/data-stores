@@ -6,8 +6,11 @@ Collection of things related to designing and deploying relational database sche
 
 
 Initial questions/decisions:
++ [] Storing one Tweet ```message``` and parsing code is responsible for inserting the correct version.
++ [] Storing dispaly text start and end, even though no plans to use it....?
 + [] Store Tweet and User IDs as strings or INTs? Parsing id_strs (strings), but store as long INTs?
 + [] Need to add Tweet geo details.
++ [] Currently storing Tweet geo in ```tweets``` table rather then a ```geo``` table. 
 
 
 
