@@ -13,12 +13,6 @@ Initial questions/decisions:
 
 ## Code snippets
 
-
-
-
-
-
-
 ## SQL snippets:
 
 ### Creating ```tweets``` table
@@ -166,15 +160,16 @@ CREATE TABLE `matching_rules` (
 ```
 
 
-### Other details
+## Other details
 
+### Dropping tables
 If you are using scripts to iterate on your schema design, the following SQL command can be used to delete any current table that is being created. So use with caution.
 
 ```
 #DROP TABLE IF EXISTS hashtags; # use with caution. 
 ```    
 
-Deciding between Text and Varchar Data Types?
+### Deciding between Text and Varchar Data Types?
 
 #### TEXT
 
