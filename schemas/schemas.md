@@ -153,7 +153,7 @@ CREATE TABLE `native_media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-
+### Creating table for *matching rules*
 ```
 CREATE TABLE `matching_rules` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
