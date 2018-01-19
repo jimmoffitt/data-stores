@@ -16,9 +16,9 @@ def transform_tweet_json(tweet)
       'posted_at': tweet['created_at']
       'message': message,
       #user attributes.
-      'name': tweet['user'][''],
-      'handle': tweet['user'][''],
-      'posted_at': tweet['user']['']
+      'name': tweet['user']['name'],
+      'handle': tweet['user']['screen_name'],
+      'posted_at': tweet['user']['created_at']
       'location': tweet['user']['location'],
       'followers_count': tweet['user']['followers_count'],
       'friends_count': tweet['user']['friends_count'],
@@ -39,7 +39,7 @@ def transform_tweet_json(tweet)
       'locality': tweet['user']['locality'],
        #TODO: complete these.
       'geo_full_name': tweet['user'][''],  
-      'lat': tweet['user'][''],
+      'lat': tweet['user']['derived']['locations'][0][''],
       'long': tweet['user'][''],
       
       
