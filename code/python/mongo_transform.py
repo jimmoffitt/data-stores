@@ -24,6 +24,30 @@ class TweetTransform:
             quoted_status_id = tweet['quoted_status']['id']
 
         try:
+            
+            user_transform = {
+                #user attributes.
+                'user_id': tweet['user']['id'],
+                'name': tweet['user']['name'],
+                'handle': tweet['user']['screen_name'],
+                'posted_at': tweet['user']['created_at'],
+                'location': tweet['user']['location'],
+                'followers_count': tweet['user']['followers_count'],
+                'friends_count': tweet['user']['friends_count'],
+                'listed_count': tweet['user']['listed_count'],
+                'favorities_count': tweet['user']['favourites_count'],
+                'statuses_count': tweet['user']['statuses_count'],
+                'lang': tweet['user']['lang'],
+                'time_zone': tweet['user']['time_zone'],
+                'utc_offset': tweet['user']['utc_offset'],
+                'bio': tweet['user']['description'],
+                'url': tweet['user']['url'],
+                'verified': tweet['user']['verified'],
+                'protected': tweet['user']['protected'],
+                'klout_score': tweet['user']['klout_score'],   
+                'derived': tweet['user']['derived']
+            }
+            
             tweet_transform = {
                 'tweet_id': tweet['id'],
                 'message': message,
@@ -47,32 +71,7 @@ class TweetTransform:
                 'geo': tweet['geo'],
                 'filter_level': tweet['filter_level'],
                 'matching_rules': tweet['matching_rules'],
-                #user attributes.
-                'user_id': tweet['user']['id'],
-                'name': tweet['user']['name'],
-                'handle': tweet['user']['screen_name'],
-                'posted_at': tweet['user']['created_at'],
-                'location': tweet['user']['location'],
-                'followers_count': tweet['user']['followers_count'],
-                'friends_count': tweet['user']['friends_count'],
-                'listed_count': tweet['user']['listed_count'],
-                'favorities_count': tweet['user']['favourites_count'],
-                'statuses_count': tweet['user']['statuses_count'],
-                'lang': tweet['user']['lang'],
-                'time_zone': tweet['user']['time_zone'],
-                'utc_offset': tweet['user']['utc_offset'],
-                'bio': tweet['user']['description'],
-                'url': tweet['user']['url'],
-                'verified': tweet['user']['verified'],
-                'protected': tweet['user']['protected'],
-                'klout_score': tweet['user']['klout_score'],
-                'country_code': tweet['user']['country_code'],
-                'region': tweet['user']['region'],
-                'sub_region': tweet['user']['sub_region'],
-                'locality': tweet['user']['locality'],
-                'geo_full_name': tweet['user']['locations'][0]['full_name'],
-                'long': tweet['user']['derived']['locations'][0]['geo']['coordinates'][0],
-                'lat': tweet['user']['derived']['locations'][0]['geo']['coordinates'][1]
+                'user': user_transform
             }
 
         except:
