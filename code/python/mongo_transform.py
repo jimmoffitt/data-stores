@@ -1,6 +1,23 @@
 #OK, this is your chance to drop unwanted Tweet JSON attributes by not including them here. 
 
 
+def transform_tweet_json(tweet)
+
+  try:
+    tweet_transform = {
+      'tweet_id': tweet['id'].split(':')[2],
+      'message': text,
+      'screen_name': tweet['actor']['preferredUsername'],
+      'posted_at': parse(tweet['created_at'])
+    }
+    
+  except KeyError, e:
+    return False
+   
+  return tweet_transform
+end
+
+
 def process_tweet(tweet):
 
 
@@ -8,7 +25,7 @@ def process_tweet(tweet):
  #pre-processing 
  #Sort out which Tweet message and entities attributes to grab (depends on whether this is an extended Tweet or legacy size)
 
- text = ""
+ message = ""
  entities = {}
 
   
@@ -17,7 +34,7 @@ def process_tweet(tweet):
   try:
     tweet_object = {
       'tweet_id': tweet['id'].split(':')[2],
-      'text': text,
+      'message': text,
       'screen_name': tweet['actor']['preferredUsername'],
       'posted_at': parse(tweet['created_at']),
       'gnip_rules': tweet['gnip']['matching_rules']
