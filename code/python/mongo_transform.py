@@ -2,10 +2,14 @@
 # Here is where transformations, or remappings, happen. Changing attribute names? Storing 'user.description' as 'bio'? Do it here.
 # Also, this code contains logic for correctly navigating the Tweet JSON, pulling the right attributes for extended Tweets.
 # Extended Tweets WILL have 'text', and possibly 'entities', attributes that are truncated and incomplete.
+import json
 
 class TweetTransform:
 
+    #Tweet arriving as JSON, transformed content returned as JSON.
     def transform_tweet_json(self, tweet):
+        
+        tweet = json.loads(tweet) #Load Tweet JSON into a dictionary/hash.
 
         #Handle extended Tweets.
         if tweet['truncated'] == False:
@@ -77,4 +81,4 @@ class TweetTransform:
         except:
                 return False
 
-        return tweet_transform
+        return json.dumps(tweet_transform) #Returning as JSON.
