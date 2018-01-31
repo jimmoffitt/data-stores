@@ -211,6 +211,8 @@ To go deeper with schema design and deployment, see this [designing schemas disc
 
 ## Creating relational databases <a id="creating_relational" class="tall">&nbsp;</a>
 
+To get started with storing data you need a deployed database to insert data into. 
+
 ### Details
 
 + Depending on your schema, your code that INSERTs data will probably need to support the mappings between Tweet JSON attributes and data store fields. 
@@ -230,7 +232,6 @@ Below is an example SQL command that creates a single ```tweets``` table. While 
 
 
 ```
-DROP TABLE IF EXISTS tweets;
 CREATE TABLE `tweets` (
       `tweet_id` BIGINT UNSIGNED NOT NULL DEFAULT 0                  
     , `posted_at` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00'       # Tweet created_at
@@ -246,8 +247,7 @@ CREATE TABLE `tweets` (
     , PRIMARY KEY (tweet_id)
     
 ) 
-ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
-;
+ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 ```
 
@@ -287,6 +287,8 @@ Here is an example table for storing #hashtags. Such tables are recommended for 
   end
 
 ```
+
+
 
 # NoSQL datastores <a id="nosql" class="tall">&nbsp;</a>
 
