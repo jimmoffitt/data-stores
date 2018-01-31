@@ -202,9 +202,12 @@ sql = "INSERT INTO tweets (id, posted_at, message, user_id, created_at, updated_
 
 ## Designing schemas <a id="schema_design" class="tall">&nbsp;</a>
 
+If you are going the database route, you'll spend time designing the schema to store Tweet metadata. 
+
 What questions do you want to ask of your Tweet collection? Are you curious about what languages are being used? Do you want to run statistics on what hashtags are being included? Are there certain keywords you care most about? Are you only working with Tweets that have videos? The answers to these types of questions will drive your schema design decisions.
 
-See here for a [designing schemas discussion](https://github.com/jimmoffitt/data-stores/tree/master/schemas).
+To go deeper with schema design and deployment, see this [designing schemas discussion](https://github.com/jimmoffitt/data-stores/tree/master/schemas).
+
 
 ## Creating relational databases <a id="creating_relational" class="tall">&nbsp;</a>
 
