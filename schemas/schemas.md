@@ -1,4 +1,4 @@
-# Schemas
+# Database schemas
 
 ## Introduction
 
@@ -12,11 +12,27 @@ Initial questions/decisions:
 
 ## Code snippets
 
-## SQL snippets:
+```
+
+```
+
+
+
+## Tables and fields
+
+```
+```
+
+
+
+
+
+## Creating ```tweets``` table
+
+### SQL snippets:
 
 Below are SQL statements for creating a Tweet schema, with a main ```tweets``` table and associated tables. These are a starting point and will probably iterate when we get to actually storing Tweets. 
 
-### Creating ```tweets``` table
 
 ```
 CREATE TABLE `tweets` (
