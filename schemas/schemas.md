@@ -20,6 +20,12 @@ Initial questions/decisions:
 
 ## Tables and fields
 
+Iterating structure with small payloads.
+
+Iterations:
++ Drop 'id' field that was auto-incrementing primary key. Replaced with having tweet_od as primary key.
++ Tweaked table field data types. 
+
 ```
 ```
 
@@ -36,8 +42,7 @@ Below are SQL statements for creating a Tweet schema, with a main ```tweets``` t
 
 ```
 CREATE TABLE `tweets` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `tweet_id` bigint(25) unsigned DEFAULT NULL,
+  `tweet_id` bigint(25) unsigned NOT NULL,
   `user_id` bigint(11) DEFAULT NULL,
   `message` varchar(300) DEFAULT NULL,
   `posted_at` datetime DEFAULT '0000-00-00 00:00:00',
@@ -50,7 +55,7 @@ CREATE TABLE `tweets` (
   `retweeted_message` varchar(300) DEFAULT NULL,
   `quote_of` bigint(11) DEFAULT NULL,
   `quoted_message` varchar(300) DEFAULT NULL,
-  `favorited_count` tinyint(4) DEFAULT NULL,
+  `favorite_count` tinyint(4) DEFAULT NULL,
   `reply_count` tinyint(11) DEFAULT NULL,
   `retweet_count` tinyint(11) DEFAULT NULL,
   `quote_count` tinyint(11) DEFAULT NULL,
@@ -63,7 +68,7 @@ CREATE TABLE `tweets` (
   `tweet_json` text,
   `created_at` datetime DEFAULT '0000-00-00 00:00:00',
   `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`tweet_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
@@ -71,7 +76,6 @@ CREATE TABLE `tweets` (
 
 ```
 CREATE TABLE `users` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(25) unsigned NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `handle` varchar(100) NOT NULL DEFAULT '',
@@ -83,12 +87,12 @@ CREATE TABLE `users` (
   `followers_count` int(11) unsigned DEFAULT NULL,
   `friends_count` int(11) unsigned DEFAULT NULL,
   `listed_count` int(11) unsigned DEFAULT NULL,
-  `favourites_count` int(11) unsigned DEFAULT NULL,
+  `favorites_count` int(11) unsigned DEFAULT NULL,
   `statuses_count` int(11) unsigned DEFAULT NULL,
   `posted_at` datetime DEFAULT '0000-00-00 00:00:00',
   `lang` varchar(4) DEFAULT NULL,
   `time_zone` varchar(40) DEFAULT NULL,
-  `utc_offset` int(11) DEFAULT NULL,
+  `utc_offset` tinyint(6) DEFAULT NULL,
   `klout_score` tinyint(3) unsigned DEFAULT NULL,
   `country_code` varchar(4) DEFAULT NULL,
   `region` varchar(40) DEFAULT NULL,
@@ -99,11 +103,13 @@ CREATE TABLE `users` (
   `long` decimal(9,6) DEFAULT NULL,
   `created_at` datetime DEFAULT '0000-00-00 00:00:00',
   `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
 ### Creating tables for storing arrays of Twitter entities.
+
+With hashtags, we are currently maintaining an auto-incrementing 'id' primary key.
 
 ```
 CREATE TABLE `hashtags` (
@@ -113,8 +119,10 @@ CREATE TABLE `hashtags` (
   `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;    
+) ENGINE=InnoDB AUTO_INCREMENT=4184 DEFAULT CHARSET=utf8;
 ```
+
+The links table stores some super-useful URL 'data enrichments'.
 
 ```
 CREATE TABLE `links` (
