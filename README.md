@@ -5,7 +5,7 @@ A collection of notes on and code snippets for storing Twitter data.
   + [language/type/host combinations](#combos)
 + [Getting started material](#reading)
 + [Steps to storing Tweet data](#steps)
-+ [Mapping correct JSON attributes?](#mapping)
++ [Mapping the correct JSON attributes](#mapping)
 + [Relational databases](#relational)
   + [Designing schemas](#schema_design)
   + [Creating databases](#creating_relational)
@@ -40,7 +40,17 @@ Python package connection string:
 cnx = mysql.connector.connect(user='jim', password='NoMyP455w0rd', host='127.0.0.1', :port => 3306, database='tweets')
 ```
 
-### Options?
+#### Remote data store services
+
+For this project, a MySQL database was deployed on a remote machine connected to using ssh. When developing and testing code within an IDE, a SSH tunnel was established independent of the IDE with the following command: 
+
+```
+ssh -N -f -L 3307:<DB-HOST-NAME>:3306 <nest server>
+```
+Then in the local code the database host is set to localhost/127.0.0.1 on port 3307 (port number is user configurable).
+
+
+### Coding options?
 
 + Languages? Great to start with Python, Ruby, and Node. Scala would be good too.
 + Data store types? 
@@ -123,7 +133,7 @@ Ruby
 + Start asking questions about that data. 
   + Write code to query data. (Sort of a part 2 for this project).
 
-# Mapping correct JSON attributes? <a id="mapping" class="tall">&nbsp;</a>
+# Mapping the correct JSON attributes <a id="mapping" class="tall">&nbsp;</a>
 
 With the introduction of 'hidden text' (replies and native media URLs not counted as Tweet message characters) and #280 Tweets, Tweet JSON payloads now have multiple attributes for the Tweet message and the Tweet's entities, with some of those containing incomplete and truncated values. Take this example of a #280 Tweet, [tweet_extended.json](https://github.com/jimmoffitt/data-stores/blob/master/tweets/tweet_extended.json). Using jq, let's extract the two message fields:
 
