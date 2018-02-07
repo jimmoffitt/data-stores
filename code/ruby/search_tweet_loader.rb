@@ -1,10 +1,17 @@
 =begin
-This class knows how to write to a relational database.
+
+This class knows how to write Tweets to a relational database.
 
 Client code makes a call to Relational.store_tweets(results), where 'results' is the response['results'] hash/dictionary
 as returned from any of the Twitter premium and enterprise search APIs.
-This class knows how navigate Tweet JSON to parse the correct (e.g. complete) message, entities and extended_entities
-attributes.
+
+This class knows how navigate and transform Tweet JSON to provide the correct (e.g. complete) message, entities and extended_entities
+attributes. This transformation results in root-level entities and extended entities objects that are correct, regardless of whether 
+the Tweet is 'extended' (> 140 characters) or not. So, this class abstracts the 'extended' Tweet details away at the INSERT/Schema 
+evel. This transformation also includes generating a root-level 'message' attribute that contains a non-trunctated Tweet message.  
+
+The SQL commands generated here are based on [this schema](https://github.com/jimmoffitt/data-stores/blob/master/schemas/schemas.md).
+
 =end
 
 class Relational
