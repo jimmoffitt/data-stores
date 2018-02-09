@@ -73,3 +73,15 @@ FROM tweets
 WHERE posted_at >= CAST('2017-12-01 07:00' AS DATE)
 AND posted_at < CAST('2018-01-01 07:00' AS DATE);
 ```
+
+Sometimes you need to flush all of your data and start over.
+
+```sql
+DELETE FROM users;
+DELETE FROM tweets;
+DELETE FROM hashtags;
+DELETE FROM mentions;
+DELETE FROM links;
+DELETE FROM native_media;
+
+```
