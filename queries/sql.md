@@ -1,5 +1,5 @@
 ```sql
-#Couning things
+#Counting things
 SELECT COUNTS(*) FROM tweets;
 SELECT COUNT(DISTINCT hashtag) FROM hashtags;
 SELECT COUNT(*) FROM tweets WHERE quote_of IS NULL AND retweet_of IS NULL;
@@ -53,6 +53,14 @@ ORDER BY total_links
 DESC
 LIMIT 10;
 
+#Top mentions
+SELECT mention, COUNT(*) AS total_mentions
+FROM mentions
+GROUP BY mention
+ORDER BY total_mentions
+DESC
+LIMIT 10;
+
 #How many geo-tagged Tweets with native media?
 SELECT COUNT(*)
 FROM tweets t, native_media n
@@ -83,5 +91,6 @@ DELETE FROM hashtags;
 DELETE FROM mentions;
 DELETE FROM links;
 DELETE FROM native_media;
+DELETE FORM matching_rules;
 
 ```
