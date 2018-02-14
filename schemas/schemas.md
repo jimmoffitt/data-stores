@@ -185,7 +185,7 @@ CREATE TABLE `matching_rules` (
   `rule_id` bigint(20) unsigned DEFAULT NULL,
   `created_at` datetime DEFAULT '0000-00-00 00:00:00',
   `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
-  `syntax` varchar(3000) DEFAULT NULL,
+  `filter` varchar(3000) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
