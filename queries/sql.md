@@ -89,8 +89,8 @@ DELETE FROM users;
 DELETE FROM tweets;
 DELETE FROM hashtags;
 DELETE FROM mentions;
+DELETE FROM symbols;
 DELETE FROM links;
 DELETE FROM native_media;
-DELETE FORM matching_rules;
-
+DELETE FROM matching_rules;
 ```
