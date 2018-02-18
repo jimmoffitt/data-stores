@@ -120,4 +120,14 @@ SELECT posted_at,message, vit
 FROM tweets
 WHERE message LIKE "%help%" 
 AND message LIKE "%rescue%" ;
+
+SELECT posted_at,message, vit 
+FROM tweets
+WHERE message LIKE "%address%"
+AND message LIKE "%rescue%" ;
+
+
+
+
+
 ```
