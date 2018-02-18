@@ -113,4 +113,11 @@ AND t.posted_at > '2017-12-04 19:00:00'
 AND t.user_id = u.user_id;
 ```
 
+Example queries for curating 'by hand':
 
+```sql
+SELECT posted_at,message, vit 
+FROM tweets
+WHERE message LIKE "%help%" 
+AND message LIKE "%rescue%" ;
+```
