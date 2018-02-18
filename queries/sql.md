@@ -94,3 +94,23 @@ DELETE FROM links;
 DELETE FROM native_media;
 DELETE FROM matching_rules;
 ```
+
+Queries to set VIT Tweets in bulk:
+
+```sql
+UPDATE tweets t, users u
+SET t.`vit` = 1
+WHERE u.handle IN ("CountyVentura", "CAL_FIRE", "venturawaterCA", "VCFD", "VCWatershed","VenturaOES","NWSLosAngeles", "countyofSB", "CaltransDist7")
+AND t.user_id = u.user_id;
+
+#Some account are conditional VIT
+UPDATE tweets t, users u
+SET t.`vit` = 1
+WHERE u.handle IN ("VCscanner", "LATimes")
+AND t.message LIKE "%fire%"
+AND t.message LIKE "%thomas%"
+AND t.posted_at > '2017-12-04 19:00:00' 
+AND t.user_id = u.user_id;
+```
+
+
