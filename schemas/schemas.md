@@ -174,46 +174,41 @@ Here's a method that receive an array of hashtags parsed from a collection of Tw
 ```ruby
 def write_hashtags(hashtags)
 
-		begin
+	begin
 
-			#Build link values
-			hashtag_values = []
+		#Build link values
+		hashtag_values = []
 
-			hashtags.each do |hashtag_metadata|
-				tweet_id = hashtag_metadata['tweet_id']
+		hashtags.each do |hashtag_metadata|
+			tweet_id = hashtag_metadata['tweet_id']
 
-				hashtag_metadata['hashtags'].each do |item|
-					values = "(#{tweet_id}, '#{item['text']}', UTC_TIMESTAMP(), UTC_TIMESTAMP())"
-					hashtag_values << values
-				end
+			hashtag_metadata['hashtags'].each do |item|
+				values = "(#{tweet_id}, '#{item['text']}', UTC_TIMESTAMP(), UTC_TIMESTAMP())"
+				hashtag_values << values
 			end
-
-			hashtags_number = hashtag_values.length
-
-			#Convert array of values to a comma-delimited string.
-			hashtag_values = hashtag_values.join(',')
-
-			#Build query pattern
-			sql = "REPLACE INTO hashtags (tweet_id, hashtag, created_at, updated_at)" +
-				"VALUES #{hashtag_values};"
-			
-			result = @db_engine.query(sql)
-			puts "Stored #{hashtags_number} hashtags..."
-
-		rescue Exception => e
-			puts "Error storing #{hashtags_number} hashtags..."
-			puts e.message
-			puts e.backtrace.inspect
 		end
 
+		hashtags_number = hashtag_values.length
+
+		#Convert array of values to a comma-delimited string.
+		hashtag_values = hashtag_values.join(',')
+
+		#Build query pattern
+		sql = "REPLACE INTO hashtags (tweet_id, hashtag, created_at, updated_at)" +
+			"VALUES #{hashtag_values};"
+
+		result = @db_engine.query(sql)
+		puts "Stored #{hashtags_number} hashtags..."
+
+	rescue Exception => e
+		puts "Error storing #{hashtags_number} hashtags..."
+		puts e.message
+		puts e.backtrace.inspect
 	end
 
+end
+
 ```
-
-
-
-
-
 
 ## Other details
 
@@ -224,9 +219,6 @@ Iterating structure with small payloads.
 Iterations:
 + Drop 'id' field that was auto-incrementing primary key. Replaced with having tweet_id as primary key.
 + Tweaked table field data types. 
-
-```
-```
 
 ### Dropping tables
 If you are using scripts to iterate on your schema design, the following SQL command can be used to delete any current table that is being created. So use with caution.
