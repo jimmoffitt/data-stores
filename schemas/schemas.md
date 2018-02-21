@@ -5,9 +5,9 @@
 Collection of things related to designing and deploying relational database schemas. These SQL queries that can be used to create tables in any tool that executes SQL commands. If you manually design/build your tables, you can usually export the SQL that would recreate them.
 
 Initial questions/decisions:
-+ [] Storing one Tweet ```message``` and and complete entity objects: parsing code is responsible for inserting the correct version.
-+ [] Storing display text start and end, even though no plans to use it....?
-+ [] Store Tweet and User IDs as strings or INTs? Parsing id_strs (strings), but store as BigINTs?
++ [x] Storing one Tweet ```message``` and complete entity objects: parsing code is responsible for inserting the correct version.
++ [x] Storing display text start and end, even though no plans to use it? Yes.
++ [x] Store Tweet and User IDs as strings or INTs? Storing as INTs.
 + [x] Need to add Tweet geo details. Currently storing Tweet geo in ```tweets``` table rather then a ```geo``` table. 
 
 ## Code snippets
