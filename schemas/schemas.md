@@ -10,12 +10,12 @@ Initial questions/decisions:
 + [x] Store Tweet and User IDs as strings or INTs? Storing as INTs.
 + [x] Need to add Tweet geo details. Currently storing Tweet geo in ```tweets``` table rather then a ```geo``` table. 
 
-## Creating ```tweets``` table
-
-### SQL snippets:
+# Schema definitions
+### SQL snippets
 
 Below are SQL statements for creating a Tweet schema, with a main ```tweets``` table and associated tables. These are a starting point and will probably iterate when we get to actually storing Tweets. 
 
+## Creating ```tweets``` table
 
 ```
 CREATE TABLE `tweets` (
