@@ -17,7 +17,7 @@ Below are SQL statements for creating a Tweet schema, with a main ```tweets``` t
 
 ## Creating ```tweets``` table
 
-```
+```sql
 CREATE TABLE `tweets` (
   `tweet_id` bigint(25) unsigned NOT NULL,
   `user_id` bigint(11) DEFAULT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `tweets` (
 
 ### Creating ```users```table.
 
-```
+```sql
 CREATE TABLE `users` (
   `user_id` bigint(25) unsigned NOT NULL,
   `name` varchar(100) DEFAULT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE `users` (
 
 With hashtags, we are currently maintaining an auto-incrementing 'id' primary key.
 
-```
+```sql
 CREATE TABLE `hashtags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tweet_id` bigint(25) unsigned NOT NULL DEFAULT '0',
@@ -101,7 +101,7 @@ CREATE TABLE `hashtags` (
 
 The links table stores some super-useful URL 'data enrichments'.
 
-```
+```sql
 CREATE TABLE `links` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tweet_id` bigint(25) unsigned NOT NULL DEFAULT '0',
@@ -115,7 +115,7 @@ CREATE TABLE `links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-```
+```sql
 CREATE TABLE `mentions` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tweet_id` bigint(25) unsigned NOT NULL DEFAULT '0',
@@ -126,7 +126,7 @@ CREATE TABLE `mentions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-```
+```sql
 CREATE TABLE `symbols` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tweet_id` bigint(25) unsigned DEFAULT NULL,
@@ -138,7 +138,7 @@ CREATE TABLE `symbols` (
 ```
 
 ### Creating table for *Native Media*
-```
+```sql
 CREATE TABLE `native_media` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tweet_id` bigint(25) unsigned NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE `native_media` (
 ```
 
 ### Creating table for *matching rules*
-```
+```sql
 CREATE TABLE `matching_rules` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `tweet_id` bigint(25) unsigned DEFAULT NULL,
