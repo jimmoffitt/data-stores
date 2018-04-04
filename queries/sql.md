@@ -2,10 +2,21 @@
 
 ```sql
 
+
+
 #Counting things
-SELECT COUNTS(*) FROM tweets;
-SELECT COUNT(DISTINCT hashtag) FROM hashtags;
+SELECT COUNT(*) FROM tweets;
+#Original Tweets
 SELECT COUNT(*) FROM tweets WHERE quote_of IS NULL AND retweet_of IS NULL;
+#Quote Tweets
+SELECT COUNT(*) FROM tweets WHERE quote_of IS NOT NULL;
+#Retweets
+SELECT COUNT(*) FROM tweets WHERE retweet_of IS NOT NULL;
+
+SELECT COUNT(*) FROM users;
+SELECT COUNT(*) FROM hashtags;
+#Unique hashtags.
+SELECT COUNT(DISTINCT hashtag) FROM hashtags;
 
 #Extended Tweets. #280. Hidden text from Simplified Mentions and Attachments.
 SELECT COUNT(*) FROM tweets WHERE LENGTH(message) > 140;
@@ -27,10 +38,12 @@ SELECT COUNT(DISTINCT tweet_id) FROM native_media;
 SELECT COUNT(*) FROM tweets t, native_media n
 WHERE t.tweet_id = n.tweet_id;
 
+#Tweets with native photos
 SELECT COUNT(*) FROM tweets t, native_media n
 WHERE t.tweet_id = n.tweet_id
 AND n.`type` = "photo";
 
+#Tweets with native videos
 SELECT COUNT(*) FROM tweets t, native_media n
 WHERE t.tweet_id = n.tweet_id
 AND n.`type` = "video";
@@ -64,14 +77,22 @@ ORDER BY total_mentions
 DESC
 LIMIT 10;
 
+#Most frequent posters?
+SELECT u.handle, COUNT(*) AS total_tweets
+FROM tweets t, users u
+WHERE t.user_id = u.user_id
+GROUP BY u.user_id
+ORDER BY total_tweets
+DESC
+LIMIT 30;
+
 #How many geo-tagged Tweets with native media?
 SELECT COUNT(*)
 FROM tweets t, native_media n
 WHERE t.tweet_id = n.tweet_id
 AND t.`long` IS NOT NULL;
 
-
-#How many geo-tagged Tweets with  links to hosted media?
+#How many geo-tagged Tweets with links to hosted media? Any link with "photo" or "instagram" tokens.
 SELECT COUNT(*)
 FROM tweets t, links l
 WHERE t.tweet_id = l.tweet_id 
@@ -79,10 +100,30 @@ AND t.`long` IS NOT NULL
 AND (l.unwound_url LIKE "%instagram%" OR l.unwound_url LIKE "%photo%");
 
 
+### OTHERS
+
+
+#Tweets from specified time period
 SELECT COUNT(*) 
 FROM tweets
 WHERE posted_at >= CAST('2017-12-01 07:00' AS DATE)
 AND posted_at < CAST('2018-01-01 07:00' AS DATE);
+
+#Filters driving this dataset
+SELECT DISTINCT filter
+FROM matching_rules;
+
+#Exporting Tweet IDs for Engagement API
+SELECT tweet_id FROM tweets;
+
+#Time-series generation.
+SELECT FROM_UNIXTIME(CEILING(UNIX_TIMESTAMP(t.`posted_at`))) AS timeslice,
+       COUNT(*) AS mycount
+FROM tweets t, hashtags h
+WHERE t.tweet_id = h.tweet_id AND (h.hashtag LIKE "%fire%")
+GROUP BY timeslice;
+
+
 ```
 
 ### Purging your database's data
