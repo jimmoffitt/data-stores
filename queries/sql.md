@@ -156,6 +156,24 @@ AND t.message LIKE "%fire%"
 AND t.message LIKE "%thomas%"
 AND t.posted_at > '2017-12-04 19:00:00' 
 AND t.user_id = u.user_id;
+
+##Looking for conversations
+SELECT COUNT(*) FROM tweets
+WHERE (message LIKE "%need%" AND message LIKE "%rescue%");
+
+SELECT * FROM tweets
+WHERE (message LIKE "%need%" AND message LIKE "%rescue%")
+LIMIT 1000;
+
+SELECT COUNT(*) FROM tweets
+WHERE (message LIKE "@VCFD%");
+
+SELECT * FROM tweets
+WHERE (message LIKE "@VCFD%")
+LIMIT 1000;
+
+
+
 ```
 
 Example queries for curating 'by hand':
