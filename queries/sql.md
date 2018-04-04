@@ -1,4 +1,7 @@
+### Collection of example SQL queries based on the schema HERE.
+
 ```sql
+
 #Counting things
 SELECT COUNTS(*) FROM tweets;
 SELECT COUNT(DISTINCT hashtag) FROM hashtags;
@@ -82,6 +85,7 @@ WHERE posted_at >= CAST('2017-12-01 07:00' AS DATE)
 AND posted_at < CAST('2018-01-01 07:00' AS DATE);
 ```
 
+### Purging your database's data
 Sometimes you need to flush all of your data and start over.
 
 ```sql
@@ -95,7 +99,7 @@ DELETE FROM native_media;
 DELETE FROM matching_rules;
 ```
 
-Queries to set VIT Tweets in bulk:
+### Queries to set VIT Tweets in bulk:
 
 ```sql
 UPDATE tweets t, users u
