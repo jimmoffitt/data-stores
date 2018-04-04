@@ -19,16 +19,6 @@ add_tweet = ("INSERT INTO tweets "
 # Insert Tweet
 cursor.execute(add_tweet, tweet_data)
 
-
-# Insert salary information
-data_salary = {
-  'emp_no': emp_no,
-  'salary': 50000,
-  'from_date': tomorrow,
-  'to_date': date(9999, 1, 1),
-}
-cursor.execute(add_salary, data_salary)
-
 # Make sure data is committed to the database
 cnx.commit()
 
