@@ -157,6 +157,11 @@ AND t.message LIKE "%thomas%"
 AND t.posted_at > '2017-12-04 19:00:00' 
 AND t.user_id = u.user_id;
 
+#Tweets to @VCFD
+UPDATE tweets t
+SET t.`vit` = 1
+WHERE t.message LIKE "@VCFD%";
+
 ##Looking for conversations
 SELECT COUNT(*) FROM tweets
 WHERE (message LIKE "%need%" AND message LIKE "%rescue%");
