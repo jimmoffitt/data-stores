@@ -42,8 +42,8 @@ class Relational
 		@ssh_host = 'nest.smfc.twitter.com'
 		
 		@credentials = {}
-		@credentials['username'] = 'app.jmoffitt.0'
-		@credentials['password'] = '8FAFD13DcdBB5ED65B9FD'
+		@credentials['username'] = ''
+		@credentials['password'] = ''
 
     #Let's connect
 		connect
